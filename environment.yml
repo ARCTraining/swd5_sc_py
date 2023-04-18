@@ -1,0 +1,14 @@
+name: arcdocs-jb
+channels:
+  - defaults
+dependencies:
+  - python=3.8.12
+  - jinja2=3.0.3
+  - pip=20
+  - scipy
+  - matplotlib
+  - pandas
+  - numpy
+  - pip:
+    - jupyter-book==0.13.0
+
