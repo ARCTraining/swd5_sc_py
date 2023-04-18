@@ -8,6 +8,6 @@ root: welcome
 
 sections:
   - file: 1_numpy
-  - file: 2_matplotlib/3_matplotlib.ipynb
-  - file: 3_scipy/3_scipy.ipynb
-  - file: 4_pandas/4_intro_pandas.ipynb
+  - file: 2_matplotlib/3_matplotlib
+  - file: 3_scipy/3_scipy
+  - file: 4_pandas/4_intro_pandas

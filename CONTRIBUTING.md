@@ -1,6 +1,6 @@
-# Contributing to the template jupyter book docs repository
+# Contributing to the SWD5: Scientific Python repository
 
-:tada: **Welcome to the template jupyter book docs GitHub repository!** :tada:
+:tada: **Welcome to the SWD5: Scientific Python GitHub repository!** :tada:
 
 _Thank you for wanting to contribute to this project!_
 
@@ -22,6 +22,6 @@ If you have any questions that aren't discussed below, please let us know throug
 ## Get in touch
 
 You can get in touch with the Research Computing Team at Leeds via the following channels:
-- Open an [issue](https://github.com/ARCTraining/template-jb-docs/issues)
+- Open an [issue](https://github.com/ARCTraining/swd5_sc_py/issues)
 - Email the Research Computing Team via [ask-rc@leeds.ac.uk](mailto:ask-rc@leeds.ac.uk)
 
