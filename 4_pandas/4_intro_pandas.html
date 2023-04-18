@@ -1,0 +1,3251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to Pandas &#8212; SWD5: Scientific Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://arctraining.github.io/swd5_sc_py/4_pandas/4_intro_pandas.html" />
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Example : Double integral" href="../3_scipy/3_scipy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWD5: Scientific Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome.html">
+                    SWD5: Scientific Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_numpy.html">
+   Scientific Python 1: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_matplotlib/3_matplotlib.html">
+   Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_scipy/3_scipy.html">
+   Example : Double integral
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to Pandas
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ARCTraining/swd5_sc_py/main?urlpath=tree/book/4_pandas/4_intro_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ARCTraining/swd5_sc_py/blob/main/book/4_pandas/4_intro_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py/issues/new?title=Issue%20on%20page%20%2F4_pandas/4_intro_pandas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py/edit/main/book/4_pandas/4_intro_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/4_pandas/4_intro_pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-data-structures">
+   Pandas Data Structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe">
+     DataFrame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-data">
+   Importing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#microsoft-excel">
+     Microsoft Excel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-fundamentals">
+   Pandas Fundamentals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulating-indices">
+     Manipulating indices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-and-selection">
+   Indexing and Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations">
+   Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-and-ranking">
+   Sorting and Ranking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchical-indexing">
+   Hierarchical indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-summarization">
+   Data summarization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data-to-files">
+   Writing Data to Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-exercise-compiling-ebola-data">
+     Advanced Exercise: Compiling Ebola Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to Pandas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-data-structures">
+   Pandas Data Structures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe">
+     DataFrame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-data">
+   Importing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#microsoft-excel">
+     Microsoft Excel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-fundamentals">
+   Pandas Fundamentals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulating-indices">
+     Manipulating indices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-and-selection">
+   Indexing and Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operations">
+   Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-and-ranking">
+   Sorting and Ranking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchical-indexing">
+   Hierarchical indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-summarization">
+   Data summarization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-data-to-files">
+   Writing Data to Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-exercise-compiling-ebola-data">
+     Advanced Exercise: Compiling Ebola Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pandas">
+<h1>Introduction to Pandas<a class="headerlink" href="#introduction-to-pandas" title="Permalink to this headline">#</a></h1>
+<p><strong>pandas</strong> is a Python package providing fast, flexible, and expressive data structures designed to work with <em>relational</em> or <em>labeled</em> data both. It is a fundamental high-level building block for doing practical, real world data analysis in Python.</p>
+<p>pandas is well suited for:</p>
+<ul class="simple">
+<li><p>Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet</p></li>
+<li><p>Ordered and unordered (not necessarily fixed-frequency) time series data.</p></li>
+<li><p>Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels</p></li>
+<li><p>Any other form of observational / statistical data sets. The data actually need not be labeled at all to be placed into a pandas data structure</p></li>
+</ul>
+<p>Key features:</p>
+<ul class="simple">
+<li><p>Easy handling of <strong>missing data</strong></p></li>
+<li><p><strong>Size mutability</strong>: columns can be inserted and deleted from DataFrame and higher dimensional objects</p></li>
+<li><p>Automatic and explicit <strong>data alignment</strong>: objects can be explicitly aligned to a set of labels, or the data can be aligned automatically</p></li>
+<li><p>Powerful, flexible <strong>group by functionality</strong> to perform split-apply-combine operations on data sets</p></li>
+<li><p>Intelligent label-based <strong>slicing, fancy indexing, and subsetting</strong> of large data sets</p></li>
+<li><p>Intuitive <strong>merging and joining</strong> data sets</p></li>
+<li><p>Flexible <strong>reshaping and pivoting</strong> of data sets</p></li>
+<li><p><strong>Hierarchical labeling</strong> of axes</p></li>
+<li><p>Robust <strong>IO tools</strong> for loading data from flat files, Excel files, databases, and HDF5</p></li>
+<li><p><strong>Time series functionality</strong>: date range generation and frequency conversion, moving window statistics, moving window linear regressions, date shifting and lagging, etc.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pandas-data-structures">
+<h2>Pandas Data Structures<a class="headerlink" href="#pandas-data-structures" title="Permalink to this headline">#</a></h2>
+<section id="series">
+<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h3>
+<p>A <strong>Series</strong> is a single vector of data (like a NumPy array) with an <em>index</em> that labels each element in the vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">632</span><span class="p">,</span> <span class="mi">1638</span><span class="p">,</span> <span class="mi">569</span><span class="p">,</span> <span class="mi">115</span><span class="p">])</span>
+<span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     632
+1    1638
+2     569
+3     115
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>If an index is not specified, a default sequence of integers is assigned as the index. A NumPy array comprises the values of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>, while the index is a pandas <code class="docutils literal notranslate"><span class="pre">Index</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 632, 1638,  569,  115])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=4, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can assign meaningful labels to the index, if they are available:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">632</span><span class="p">,</span> <span class="mi">1638</span><span class="p">,</span> <span class="mi">569</span><span class="p">,</span> <span class="mi">115</span><span class="p">],</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">])</span>
+
+<span class="n">bacteria</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Firmicutes         632
+Proteobacteria    1638
+Actinobacteria     569
+Bacteroidetes      115
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>These labels can be used to refer to the values in the <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span><span class="p">[</span><span class="s1">&#39;Actinobacteria&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>569
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span><span class="p">[[</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;bacteria&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bacteria</span><span class="o">.</span><span class="n">index</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proteobacteria    1638
+Actinobacteria     569
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;bacteria&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bacteria</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[False, True, True, False]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the indexing operation preserved the association between the values and the corresponding indices.</p>
+<p>We can still use positional indexing if we wish.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>632
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can give both the array of values and the index meaningful labels themselves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;counts&#39;</span>
+<span class="n">bacteria</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;phylum&#39;</span>
+<span class="n">bacteria</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>phylum
+Firmicutes         632
+Proteobacteria    1638
+Actinobacteria     569
+Bacteroidetes      115
+Name: counts, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPy’s math functions and other operations can be applied to Series without losing the data structure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">bacteria</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>phylum
+Firmicutes        6.448889
+Proteobacteria    7.401231
+Actinobacteria    6.343880
+Bacteroidetes     4.744932
+Name: counts, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also filter according to the values in the <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span><span class="p">[</span><span class="n">bacteria</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>phylum
+Proteobacteria    1638
+Name: counts, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">Series</span></code> can be thought of as an ordered key-value store. In fact, we can create one from a <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Firmicutes&#39;</span><span class="p">:</span> <span class="mi">632</span><span class="p">,</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">:</span> <span class="mi">1638</span><span class="p">,</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">:</span> <span class="mi">569</span><span class="p">,</span>
+                 <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">:</span> <span class="mi">115</span><span class="p">}</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">bacteria_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Firmicutes         632
+Proteobacteria    1638
+Actinobacteria     569
+Bacteroidetes      115
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">Series</span></code> is created in key-sorted order.</p>
+<p>If we pass a custom index to <code class="docutils literal notranslate"><span class="pre">Series</span></code>, it will select the corresponding values from the dict, and treat indices without corrsponding values as missing. Pandas uses the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (not a number) type for missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">bacteria_dict</span><span class="p">,</span> 
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cyanobacteria&#39;</span><span class="p">,</span><span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span><span class="s1">&#39;Actinobacteria&#39;</span><span class="p">])</span>
+<span class="n">bacteria2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cyanobacteria        NaN
+Firmicutes         632.0
+Proteobacteria    1638.0
+Actinobacteria     569.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cyanobacteria      True
+Firmicutes        False
+Proteobacteria    False
+Actinobacteria    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Critically, the labels are used to <strong>align data</strong> when used in operations with other Series objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria</span> <span class="o">+</span> <span class="n">bacteria2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actinobacteria    1138.0
+Bacteroidetes        NaN
+Cyanobacteria        NaN
+Firmicutes        1264.0
+Proteobacteria    3276.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Contrast this with NumPy arrays, where arrays of the same length will combine values element-wise; adding Series combined values with the same label in the resulting series. Notice also that the missing values were propogated by addition.</p>
+</section>
+<section id="dataframe">
+<h3>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h3>
+<p>Inevitably, we want to be able to store, view and manipulate data that is <em>multivariate</em>, where for every index there are multiple fields or columns of data, often of varying data type.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a tabular data structure, encapsulating multiple series like columns in a spreadsheet. Data are stored internally as a 2-dimensional object, but the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> allows us to represent and manipulate higher-dimensional data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;value&#39;</span><span class="p">:[</span><span class="mi">632</span><span class="p">,</span> <span class="mi">1638</span><span class="p">,</span> <span class="mi">569</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">433</span><span class="p">,</span> <span class="mi">1130</span><span class="p">,</span> <span class="mi">754</span><span class="p">,</span> <span class="mi">555</span><span class="p">],</span>
+                     <span class="s1">&#39;patient&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                     <span class="s1">&#39;phylum&#39;</span><span class="p">:[</span><span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">,</span> <span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">]})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+      <th>patient</th>
+      <th>phylum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>632</td>
+      <td>1</td>
+      <td>Firmicutes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1638</td>
+      <td>1</td>
+      <td>Proteobacteria</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>569</td>
+      <td>1</td>
+      <td>Actinobacteria</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>115</td>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>433</td>
+      <td>2</td>
+      <td>Firmicutes</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1130</td>
+      <td>2</td>
+      <td>Proteobacteria</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>754</td>
+      <td>2</td>
+      <td>Actinobacteria</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>555</td>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is sorted by column name. We can change the order by indexing them in the order we desire:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;phylum&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">,</span><span class="s1">&#39;patient&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>phylum</th>
+      <th>value</th>
+      <th>patient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Firmicutes</td>
+      <td>632</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Actinobacteria</td>
+      <td>569</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bacteroidetes</td>
+      <td>115</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Firmicutes</td>
+      <td>433</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Proteobacteria</td>
+      <td>1130</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Actinobacteria</td>
+      <td>754</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> has a second index, representing the columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;value&#39;, &#39;patient&#39;, &#39;phylum&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute reveals the data type for each column in our DataFrame.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int64</span></code> is numeric integer values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> strings (letters and numbers)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float64</span></code> floating-point values</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value       int64
+patient     int64
+phylum     object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wish to access columns, we can do so either by dict-like indexing or by attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;patient&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    1
+2    1
+3    1
+4    2
+5    2
+6    2
+7    2
+Name: patient, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">patient</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    1
+2    1
+3    1
+4    2
+5    2
+6    2
+7    2
+Name: patient, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>632</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>433</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1130</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>754</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice this is different than with <code class="docutils literal notranslate"><span class="pre">Series</span></code>, where dict-like indexing retrieved a particular element (row).</p>
+<p>If we want access to a row in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, we index its <code class="docutils literal notranslate"><span class="pre">loc</span></code> attribute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value                115
+patient                1
+phylum     Bacteroidetes
+Name: 3, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h3>
+<p>Try out these commands to see what they return:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data.head()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data.tail(3)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data.shape</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>An alternative way of initializing a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is with a list of dicts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">632</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">1638</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">569</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">115</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Firmicutes&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">433</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Proteobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">1130</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Actinobacteria&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">754</span><span class="p">},</span>
+                    <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;phylum&#39;</span><span class="p">:</span> <span class="s1">&#39;Bacteroidetes&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">555</span><span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>433</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>1130</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>754</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Its important to note that the Series returned when a DataFrame is indexted is merely a <strong>view</strong> on the DataFrame, and not a copy of the data itself. So you must be cautious when manipulating this data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">value</span>
+<span class="n">vals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     632
+1    1638
+2     569
+3     115
+4     433
+5    1130
+6     754
+7     555
+Name: value, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2387/1693880163.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  vals[5] = 0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     632
+1    1638
+2     569
+3     115
+4     433
+5       0
+6     754
+7     555
+Name: value, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>433</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>754</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we plan on modifying an extracted Series, its a good idea to make a copy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">vals</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>433</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>754</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can create or modify columns by assignment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">value</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2387/1243388670.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data.value[[3,4,6]] = [14, 21, 5]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2013</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>14</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>21</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>5</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+      <td>2013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>But note, we cannot use the attribute indexing method to add a new column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">treatment</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>14</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>21</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>5</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+      <td>2013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">treatment</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>From the <code class="docutils literal notranslate"><span class="pre">data</span></code> table above, create an index to return all rows for which the phylum name ends in “bacteria” and the value is greater than 1000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Specifying a <code class="docutils literal notranslate"><span class="pre">Series</span></code> as a new columns cause its values to be added according to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treatment</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">treatment</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+1    0
+2    0
+3    0
+4    1
+5    1
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">treatment</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>phylum</th>
+      <th>value</th>
+      <th>year</th>
+      <th>treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Firmicutes</td>
+      <td>632</td>
+      <td>2013</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Proteobacteria</td>
+      <td>1638</td>
+      <td>2013</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Actinobacteria</td>
+      <td>569</td>
+      <td>2013</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Bacteroidetes</td>
+      <td>14</td>
+      <td>2013</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Firmicutes</td>
+      <td>21</td>
+      <td>2013</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>Proteobacteria</td>
+      <td>0</td>
+      <td>2013</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>Actinobacteria</td>
+      <td>5</td>
+      <td>2013</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Bacteroidetes</td>
+      <td>555</td>
+      <td>2013</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Other Python data structures (ones without an index) need to be the same length as the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">40</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">month</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">month</span>
+
+<span class="nn">File /usr/share/miniconda/envs/arcdocs-jb/lib/python3.8/site-packages/pandas/core/frame.py:3980,</span> in <span class="ni">DataFrame.__setitem__</span><span class="nt">(self, key, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3977</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_array</span><span class="p">([</span><span class="n">key</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3978</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3979</span>     <span class="c1"># set column</span>
+<span class="ne">-&gt; </span><span class="mi">3980</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/arcdocs-jb/lib/python3.8/site-packages/pandas/core/frame.py:4174,</span> in <span class="ni">DataFrame._set_item</span><span class="nt">(self, key, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4164</span> <span class="k">def</span> <span class="nf">_set_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4165</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4166</span><span class="sd">     Add series to DataFrame in specified column.</span>
+<span class="g g-Whitespace">   </span><span class="mi">4167</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4172</span><span class="sd">     ensure homogeneity.</span>
+<span class="g g-Whitespace">   </span><span class="mi">4173</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">4174</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize_column</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4176</span>     <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4177</span>         <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span>
+<span class="g g-Whitespace">   </span><span class="mi">4178</span>         <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">4179</span>         <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_extension_array_dtype</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4180</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4181</span>         <span class="c1"># broadcast across multiple columns if necessary</span>
+<span class="g g-Whitespace">   </span><span class="mi">4182</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">MultiIndex</span><span class="p">):</span>
+
+<span class="nn">File /usr/share/miniconda/envs/arcdocs-jb/lib/python3.8/site-packages/pandas/core/frame.py:4915,</span> in <span class="ni">DataFrame._sanitize_column</span><span class="nt">(self, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4912</span>     <span class="k">return</span> <span class="n">_reindex_for_setitem</span><span class="p">(</span><span class="n">Series</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4914</span> <span class="k">if</span> <span class="n">is_list_like</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4915</span>     <span class="n">com</span><span class="o">.</span><span class="n">require_length_match</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4916</span> <span class="k">return</span> <span class="n">sanitize_array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/arcdocs-jb/lib/python3.8/site-packages/pandas/core/common.py:571,</span> in <span class="ni">require_length_match</span><span class="nt">(data, index)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="sd"> Check the length of data matches the length of the index.</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">571</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>         <span class="s2">&quot;Length of values &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>         <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">) &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>         <span class="s2">&quot;does not match length of index &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>         <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="p">)</span>
+
+<span class="ne">ValueError</span>: Length of values (4) does not match length of index (8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">del</span></code> to remove columns, in the same way <code class="docutils literal notranslate"><span class="pre">dict</span></code> entries can be removed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can extract the underlying data as a simple <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> by accessing the <code class="docutils literal notranslate"><span class="pre">values</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that because of the mix of string and integer (and <code class="docutils literal notranslate"><span class="pre">NaN</span></code>) values, the dtype of the array is <code class="docutils literal notranslate"><span class="pre">object</span></code>. The dtype will automatically be chosen to be as general as needed to accomodate all the columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;bar&#39;</span><span class="p">:[</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas uses a custom data structure to represent the indices of Series and DataFrames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Index objects are immutable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is so that Index objects can be shared between data structures without fear that they will be changed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">bacteria</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="importing-data">
+<h2>Importing data<a class="headerlink" href="#importing-data" title="Permalink to this headline">#</a></h2>
+<p>A key, but often under-appreciated, step in data analysis is importing the data that we wish to analyze. Though it is easy to load basic data structures into Python using built-in tools or those provided by packages like NumPy, it is non-trivial to import structured data well, and to easily convert this input into a robust data structure:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>genes = np.loadtxt(&quot;genes.csv&quot;, delimiter=&quot;,&quot;, dtype=[(&#39;gene&#39;, &#39;|S10&#39;), (&#39;value&#39;, &#39;&lt;f4&#39;)])
+</pre></div>
+</div>
+<p>Pandas provides a convenient set of functions for importing tabular data in a number of formats directly into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object. These functions include a slew of options to perform type inference, indexing, parsing, iterating and cleaning automatically as data are imported.</p>
+<p>Let’s start with some more bacteria data, stored in csv format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>../data/microbiome.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table can be read into a DataFrame using <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">)</span>
+<span class="n">mb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> automatically considered the first row in the file to be a header row.</p>
+<p>We can override default behavior by customizing some the arguments, like <code class="docutils literal notranslate"><span class="pre">header</span></code>, <code class="docutils literal notranslate"><span class="pre">names</span></code> or <code class="docutils literal notranslate"><span class="pre">index_col</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_csv</span></code> is just a convenience function for <code class="docutils literal notranslate"><span class="pre">read_table</span></code>, since csv is such a common format:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sep</span></code> argument can be customized as needed to accomodate arbitrary separators. For example, we can use a regular expression to define a variable amount of whitespace, which is unfortunately very common in some data formats:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sep=&#39;\s+&#39;
+</pre></div>
+</div>
+<p>For a more useful index, we can specify the first two columns, which together provide a unique index to the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Patient&#39;</span><span class="p">,</span><span class="s1">&#39;Taxon&#39;</span><span class="p">])</span>
+<span class="n">mb</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is called a <em>hierarchical</em> index, which we will revisit later in the section.</p>
+<p>If we have sections of data that we do not wish to import (for example, known bad data), we can populate the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we only want to import a small number of rows from, say, a very large data file we can use <code class="docutils literal notranslate"><span class="pre">nrows</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternately, if we want to process our data in reasonable chunks, the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> argument will return an iterable object that can be employed in a data processing loop. For example, our microbiome data are organized by bacterial phylum, with 15 patients represented in each:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_chunks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">mean_tissue</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="n">chunk</span><span class="o">.</span><span class="n">Taxon</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">chunk</span><span class="o">.</span><span class="n">Tissue</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">data_chunks</span><span class="p">})</span>
+    
+<span class="n">mean_tissue</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most real-world data is incomplete, with values missing due to incomplete observation, data entry or transcription error, or other reasons. Pandas will automatically recognize and parse common missing data indicators, including <code class="docutils literal notranslate"><span class="pre">NA</span></code> and <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>../data/microbiome_missing.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome_missing.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, Pandas recognized <code class="docutils literal notranslate"><span class="pre">NA</span></code> and an empty field as missing data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome_missing.csv&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, there will sometimes be inconsistency with the conventions for missing data. In this example, there is a question mark “?” and a large negative number where there should have been a positive integer. We can specify additional symbols with the <code class="docutils literal notranslate"><span class="pre">na_values</span></code> argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome_missing.csv&quot;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">99999</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These can be specified on a column-wise basis using an appropriate dict as the argument for <code class="docutils literal notranslate"><span class="pre">na_values</span></code>.</p>
+<section id="microsoft-excel">
+<h3>Microsoft Excel<a class="headerlink" href="#microsoft-excel" title="Permalink to this headline">#</a></h3>
+<p>Since so much financial and scientific data ends up in Excel spreadsheets (regrettably), Pandas’ ability to directly import Excel spreadsheets is valuable. This support is contingent on having one or two dependencies (depending on what version of Excel file is being imported) installed: <code class="docutils literal notranslate"><span class="pre">xlrd</span></code> and <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> (these may be installed with either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">easy_install</span></code>).</p>
+<p>Importing Excel data to Pandas is a two-step process. First, we create an <code class="docutils literal notranslate"><span class="pre">ExcelFile</span></code> object using the path of the file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;../data/microbiome/MID1.xls&#39;</span><span class="p">)</span>
+<span class="n">mb_file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, since modern spreadsheets consist of one or more “sheets”, we parse the sheet with the data of interest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb1</span> <span class="o">=</span> <span class="n">mb_file</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;Sheet 1&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">mb1</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Taxon&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">]</span>
+<span class="n">mb1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is now a <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> conveneince function in Pandas that combines these steps into a single call:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;../data/microbiome/MID2.xls&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;Sheet 1&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">mb2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are several other data formats that can be imported into Python and converted into DataFrames, with the help of buitl-in or third-party libraries. These include JSON, XML, HDF5, relational and non-relational databases, and various web APIs. These are beyond the scope of this tutorial, but are covered in <a class="reference external" href="http://shop.oreilly.com/product/0636920023784.do">Python for Data Analysis</a>.</p>
+</section>
+</section>
+<section id="pandas-fundamentals">
+<h2>Pandas Fundamentals<a class="headerlink" href="#pandas-fundamentals" title="Permalink to this headline">#</a></h2>
+<p>This section introduces the new user to the key functionality of Pandas that is required to use the software effectively.</p>
+<p>For some variety, we will leave our digestive tract bacteria behind and employ some baseball data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/baseball.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">baseball</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we specified the <code class="docutils literal notranslate"><span class="pre">id</span></code> column as the index, since it appears to be a unique identifier. We could try to create a unique index ourselves by combining <code class="docutils literal notranslate"><span class="pre">player</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player_id</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">player</span> <span class="o">+</span> <span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">baseball_newind</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">baseball_newind</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">player_id</span>
+<span class="n">baseball_newind</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This looks okay, but let’s check:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, indices need not be unique. Our choice is not unique because some players change teams within years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The most important consequence of a non-unique index is that indexing by label will return multiple values for some labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;wickmbo012007&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will learn more about indexing below.</p>
+<p>We can create a truly unique index by combining <code class="docutils literal notranslate"><span class="pre">player</span></code>, <code class="docutils literal notranslate"><span class="pre">team</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player_unique</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">player</span> <span class="o">+</span> <span class="n">baseball</span><span class="o">.</span><span class="n">team</span> <span class="o">+</span> <span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">baseball_newind</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">baseball_newind</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">player_unique</span>
+<span class="n">baseball_newind</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can create meaningful indices more easily using a hierarchical index; for now, we will stick with the numeric <code class="docutils literal notranslate"><span class="pre">id</span></code> field as our index.</p>
+<section id="manipulating-indices">
+<h3>Manipulating indices<a class="headerlink" href="#manipulating-indices" title="Permalink to this headline">#</a></h3>
+<p><strong>Reindexing</strong> allows users to manipulate the data labels in a DataFrame. It forces a DataFrame to conform to the new index, and optionally, fill in missing data if requested.</p>
+<p>A simple use of <code class="docutils literal notranslate"><span class="pre">reindex</span></code> is to alter the order of the rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">baseball</span><span class="o">.</span><span class="n">index</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">id</span></code> index is not sequential. Say we wanted to populate the table with every <code class="docutils literal notranslate"><span class="pre">id</span></code> value. We could specify and index that is a sequence from the first to the last <code class="docutils literal notranslate"><span class="pre">id</span></code> numbers in the database, and Pandas would fill in the missing data with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">id_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">baseball</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">baseball</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">baseball</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">id_range</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Missing values can be filled as desired, either with selected values, or by rule:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">id_range</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">id_range</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;charliebrown&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Keep in mind that <code class="docutils literal notranslate"><span class="pre">reindex</span></code> does not work if we pass a non-unique index series.</p>
+<p>We can remove rows or columns via the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">89525</span><span class="p">,</span> <span class="mi">89526</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ibb&#39;</span><span class="p">,</span><span class="s1">&#39;hbp&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="indexing-and-selection">
+<h2>Indexing and Selection<a class="headerlink" href="#indexing-and-selection" title="Permalink to this headline">#</a></h2>
+<p>Indexing works analogously to indexing in NumPy arrays, except we can use the labels in the <code class="docutils literal notranslate"><span class="pre">Index</span></code> object to extract values in addition to arrays of integers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample Series object</span>
+<span class="n">hits</span> <span class="o">=</span> <span class="n">baseball_newind</span><span class="o">.</span><span class="n">h</span>
+<span class="n">hits</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy-style indexing</span>
+<span class="n">hits</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing by label</span>
+<span class="n">hits</span><span class="p">[[</span><span class="s1">&#39;womacto01CHN2006&#39;</span><span class="p">,</span><span class="s1">&#39;schilcu01BOS2006&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also slice with data labels, since they have an intrinsic order within the Index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hits</span><span class="p">[</span><span class="s1">&#39;womacto01CHN2006&#39;</span><span class="p">:</span><span class="s1">&#39;gonzalu01ARI2006&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hits</span><span class="p">[</span><span class="s1">&#39;womacto01CHN2006&#39;</span><span class="p">:</span><span class="s1">&#39;gonzalu01ARI2006&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">hits</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> we can slice along either or both axes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="p">[[</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;ab&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="p">[</span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">ab</span><span class="o">&gt;</span><span class="mi">500</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a more concise (and readable) syntax, we can use the new <code class="docutils literal notranslate"><span class="pre">query</span></code> method to perform selection on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Instead of having to type the fully-specified column, we can simply pass a string that describes what to select. The query above is then simply:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;ab &gt; 500&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DataFrame.index</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame.columns</span></code> are placed in the query namespace by default. If you want to refer to a variable in the current namespace, you can prefix the variable with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_ab</span> <span class="o">=</span> <span class="mi">450</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;ab &gt; @min_ab&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The indexing field <code class="docutils literal notranslate"><span class="pre">loc</span></code> allows us to select subsets of rows and columns in an intuitive way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;gonzalu01ARI2006&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;X2b&#39;</span><span class="p">,</span> <span class="s1">&#39;X3b&#39;</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;myersmi01NYA2006&#39;</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition to using <code class="docutils literal notranslate"><span class="pre">loc</span></code> to select rows and columns by <strong>label</strong>, pandas also allows indexing by <strong>position</strong> using the <code class="docutils literal notranslate"><span class="pre">iloc</span></code> attribute.</p>
+<p>So, we can query rows and columns by absolute position, rather than by name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">micro</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>Exercise<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">isin</span></code> method query a DataFrame based upon a list of values as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data[&#39;phylum&#39;].isin([&#39;Firmacutes&#39;, &#39;Bacteroidetes&#39;])
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">isin</span></code> to find all players that played for the Los Angeles Dodgers (LAN) or the San Francisco Giants (SFN). How many records contain these values?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects allow for several operations to take place either on a single object, or between two or more objects.</p>
+<p>For example, we can perform arithmetic on the elements of two objects, such as combining baseball statistics across years. First, let’s (artificially) construct two Series, consisting of home runs hit in years 2006 and 2007, respectively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hr2006</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2006</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">]</span>
+<span class="n">hr2006</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">player</span><span class="p">[</span><span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2006</span><span class="p">]</span>
+
+<span class="n">hr2007</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2007</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">]</span>
+<span class="n">hr2007</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">player</span><span class="p">[</span><span class="n">baseball</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2007</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hr2007</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s add them together, in hopes of getting 2-year home run totals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hr_total</span> <span class="o">=</span> <span class="n">hr2006</span> <span class="o">+</span> <span class="n">hr2007</span>
+<span class="n">hr_total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas’ data alignment places <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values for labels that do not overlap in the two Series. In fact, there are only 6 players that occur in both years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hr_total</span><span class="p">[</span><span class="n">hr_total</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>While we do want the operation to honor the data labels in this way, we probably do not want the missing values to be filled with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. We can use the <code class="docutils literal notranslate"><span class="pre">add</span></code> method to calculate player home run totals by using the <code class="docutils literal notranslate"><span class="pre">fill_value</span></code> argument to insert a zero for home runs where labels do not overlap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hr2007</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hr2006</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Operations can also be <strong>broadcast</strong> between rows or columns.</p>
+<p>For example, if we subtract the maximum number of home runs hit from the <code class="docutils literal notranslate"><span class="pre">hr</span></code> column, we get how many fewer than the maximum were hit by each player:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span> <span class="o">-</span> <span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, looking at things row-wise, we can see how a particular player compares with the rest of the group with respect to important statistics</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">89521</span><span class="p">,</span> <span class="s2">&quot;player&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">baseball</span><span class="p">[[</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;X2b&#39;</span><span class="p">,</span> <span class="s1">&#39;X3b&#39;</span><span class="p">,</span> <span class="s1">&#39;hr&#39;</span><span class="p">]]</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">stats</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">89521</span><span class="p">]</span>
+<span class="n">diff</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also apply functions to each column or row of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">range_calc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_range</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stat_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets use apply to calculate a meaningful baseball statistics, slugging percentage:</p>
+<div class="math notranslate nohighlight">
+\[SLG = \frac{1B + (2 \times 2B) + (3 \times 3B) + (4 \times HR)}{AB}\]</div>
+<p>And just for fun, we will format the resulting estimate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">slugging</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
+    <span class="n">bases</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;X2b&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;X3b&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;hr&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;X2b&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;X3b&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;hr&#39;</span><span class="p">]</span>
+    <span class="n">ab</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;ab&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">1e-6</span>
+    
+    <span class="k">return</span> <span class="n">bases</span><span class="o">/</span><span class="n">ab</span>
+
+<span class="n">baseball</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">slugging</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-and-ranking">
+<h2>Sorting and Ranking<a class="headerlink" href="#sorting-and-ranking" title="Permalink to this headline">#</a></h2>
+<p>Pandas objects include methods for re-ordering data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try sorting the <strong>columns</strong> instead of the rows, in ascending order:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_newind</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> to sort a <code class="docutils literal notranslate"><span class="pre">Series</span></code> by value, rather than by label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, we can sort according to the values of one or more columns using the <code class="docutils literal notranslate"><span class="pre">by</span></code> argument of <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="p">[[</span><span class="s1">&#39;player&#39;</span><span class="p">,</span><span class="s1">&#39;sb&#39;</span><span class="p">,</span><span class="s1">&#39;cs&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">],</span> 
+                                           <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sb&#39;</span><span class="p">,</span> <span class="s1">&#39;cs&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ranking</strong> does not re-arrange data, but instead returns an index that ranks each value relative to others in the Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ties are assigned the mean value of the tied ranks, which may result in decimal values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can break ties via one of several methods, such as by the order in which they occur in the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calling the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s <code class="docutils literal notranslate"><span class="pre">rank</span></code> method results in the ranks of all columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="p">[[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;hr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Calculate <strong>on base percentage</strong> for each player, and return the ordered series of estimates.</p>
+<div class="math notranslate nohighlight">
+\[OBP = \frac{H + BB + HBP}{AB + BB + HBP + SF}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="hierarchical-indexing">
+<h2>Hierarchical indexing<a class="headerlink" href="#hierarchical-indexing" title="Permalink to this headline">#</a></h2>
+<p>In the baseball example, I was forced to combine 3 fields to obtain a unique index that was not simply an integer value. A more elegant way to have done this would be to create a hierarchical index from the three fields.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_h</span> <span class="o">=</span> <span class="n">baseball</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;team&#39;</span><span class="p">,</span> <span class="s1">&#39;player&#39;</span><span class="p">])</span>
+<span class="n">baseball_h</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This index is a <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> object that consists of a sequence of tuples, the elements of which is some combination of the three columns used to create the index. Where there are multiple repeated values, Pandas does not print the repeats, making it easy to identify groups of values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_h</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_h</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try using this hierarchical index to retrieve Julio Franco (<code class="docutils literal notranslate"><span class="pre">francju01</span></code>), who played for the Atlanta Braves (<code class="docutils literal notranslate"><span class="pre">ATL</span></code>) in 2007:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball_h</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">2007</span><span class="p">,</span> <span class="s1">&#39;ATL&#39;</span><span class="p">,</span> <span class="s1">&#39;francju01&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recall earlier we imported some microbiome data using two index columns. This created a 2-level hierarchical index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/microbiome.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Taxon&#39;</span><span class="p">,</span><span class="s1">&#39;Patient&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With a hierachical index, we can select subsets of the data based on a <em>partial</em> index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Proteobacteria&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hierarchical indices can be created on either or both axes. Here is a trivial example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> 
+                  <span class="n">index</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> 
+                  <span class="n">columns</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">]])</span>
+
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to get fancy, both the row and column indices themselves can be given names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">]</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">]</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this, we can do all sorts of custom indexing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try retrieving the value corresponding to <code class="docutils literal notranslate"><span class="pre">b2</span></code> in <code class="docutils literal notranslate"><span class="pre">Colorado</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally, the order of the set of indices in a hierarchical <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> can be changed by swapping them pairwise:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="s1">&#39;Patient&#39;</span><span class="p">,</span> <span class="s1">&#39;Taxon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data can also be sorted by any index level, using <code class="docutils literal notranslate"><span class="pre">sortlevel</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">sortlevel</span><span class="p">(</span><span class="s1">&#39;Patient&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-data">
+<h2>Missing data<a class="headerlink" href="#missing-data" title="Permalink to this headline">#</a></h2>
+<p>The occurence of missing data is so prevalent that it pays to use tools like Pandas, which seamlessly integrates missing data handling so that it can be dealt with easily, and in the manner required by the analysis at hand.</p>
+<p>Missing data are represented in <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects by the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> floating point value. However, <code class="docutils literal notranslate"><span class="pre">None</span></code> is also treated as missing, since it is commonly used as such in other contexts (<em>e.g.</em> NumPy).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">])</span>
+<span class="n">foo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Missing values may be dropped or indexed out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="p">[</span><span class="n">bacteria2</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">dropna</span></code> drops entire rows in which one or more values are missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can be overridden by passing the <code class="docutils literal notranslate"><span class="pre">how='all'</span></code> argument, which only drops a row when every field is a missing value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can be customized further by specifying how many values need to be present before a row is dropped via the <code class="docutils literal notranslate"><span class="pre">thresh</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is typically used in time series applications, where there are repeated measurements that are incomplete for some subjects.</p>
+<section id="id4">
+<h3>Exercise<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Try using the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument to drop columns with missing values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rather than omitting missing data from an analysis, in some cases it may be suitable to fill the missing value in, either with a default value (such as zero) or a value that is either imputed or carried forward/backward from similar data points. We can do this programmatically in Pandas with the <code class="docutils literal notranslate"><span class="pre">fillna</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="mi">2013</span><span class="p">,</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">fillna</span></code> by default returns a new object with the desired filling behavior, rather than changing the <code class="docutils literal notranslate"><span class="pre">Series</span></code> or  <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in place (<strong>in general, we like to do this, by the way!</strong>).</p>
+<p>We can alter values in-place using <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Missing values can also be interpolated, using any one of a variety of methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;bfill&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-summarization">
+<h2>Data summarization<a class="headerlink" href="#data-summarization" title="Permalink to this headline">#</a></h2>
+<p>We often wish to summarize data in <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects, so that they can more easily be understood or compared with similar data. The NumPy package contains several functions that are useful here, but several summarization or reduction methods are built into Pandas data structures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clearly, <code class="docutils literal notranslate"><span class="pre">sum</span></code> is more meaningful for some columns than others. For methods like <code class="docutils literal notranslate"><span class="pre">mean</span></code> for which application to string variables is not just meaningless, but impossible, these columns are automatically exculded:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The important difference between NumPy’s functions and Pandas’ methods is that the latter have built-in support for handling missing data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes we may not want to ignore missing values, and allow the <code class="docutils literal notranslate"><span class="pre">nan</span></code> to propagate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bacteria2</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> will summarize over rows instead of columns, which only makes sense in certain situations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extra_bases</span> <span class="o">=</span> <span class="n">baseball</span><span class="p">[[</span><span class="s1">&#39;X2b&#39;</span><span class="p">,</span><span class="s1">&#39;X3b&#39;</span><span class="p">,</span><span class="s1">&#39;hr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">extra_bases</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A useful summarization that gives a quick snapshot of multiple statistics for a <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is <code class="docutils literal notranslate"><span class="pre">describe</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">describe</span></code> can detect non-numeric data and sometimes yield useful information about it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also calculate summary statistics <em>across</em> multiple columns, for example, correlation and covariance.</p>
+<div class="math notranslate nohighlight">
+\[cov(x,y) = \sum_i (x_i - \bar{x})(y_i - \bar{y})\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">baseball</span><span class="o">.</span><span class="n">X2b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[corr(x,y) = \frac{cov(x,y)}{(n-1)s_x s_y} = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2 \sum_i (y_i - \bar{y})^2}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">hr</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">baseball</span><span class="o">.</span><span class="n">X2b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">ab</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">baseball</span><span class="o">.</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try running <code class="docutils literal notranslate"><span class="pre">corr</span></code> on the entire <code class="docutils literal notranslate"><span class="pre">baseball</span></code> DataFrame to see what is returned:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we have a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with a hierarchical index (or indices), summary statistics can be applied with respect to any of the index levels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;Taxon&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-data-to-files">
+<h2>Writing Data to Files<a class="headerlink" href="#writing-data-to-files" title="Permalink to this headline">#</a></h2>
+<p>As well as being able to read several data input formats, Pandas can also export data to a variety of storage formats. We will bring your attention to just a couple of these.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mb</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;mb.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method writes a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a comma-separated values (csv) file. You can specify custom delimiters (via <code class="docutils literal notranslate"><span class="pre">sep</span></code> argument), how missing values are written (via <code class="docutils literal notranslate"><span class="pre">na_rep</span></code> argument), whether the index is writen (via <code class="docutils literal notranslate"><span class="pre">index</span></code> argument), whether the header is included (via <code class="docutils literal notranslate"><span class="pre">header</span></code> argument), among other options.</p>
+<p>An efficient way of storing data to disk is in binary format. Pandas supports this using Python’s built-in pickle serialization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s2">&quot;baseball_pickle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The complement to <code class="docutils literal notranslate"><span class="pre">to_pickle</span></code> is the <code class="docutils literal notranslate"><span class="pre">read_pickle</span></code> function, which restores the pickle to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;baseball_pickle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As Wes warns in his book, it is recommended that binary storage of data via pickle only be used as a temporary storage format, in situations where speed is relevant. This is because there is no guarantee that the pickle format will not change with future versions of Python.</p>
+<section id="advanced-exercise-compiling-ebola-data">
+<h3>Advanced Exercise: Compiling Ebola Data<a class="headerlink" href="#advanced-exercise-compiling-ebola-data" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">data/ebola</span></code> folder contains summarized reports of Ebola cases from three countries during the recent outbreak of the disease in West Africa. For each country, there are daily reports that contain various information about the outbreak in several cities in each country.</p>
+<p>From these data files, use pandas to import them and create a single data frame that includes the daily totals of new cases and deaths for each country.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="http://shop.oreilly.com/product/0636920023784.do">Python for Data Analysis</a> Wes McKinney</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4_pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../3_scipy/3_scipy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Example : Double integral</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By University of Leeds Research Computing Team<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

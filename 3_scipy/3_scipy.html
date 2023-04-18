@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Example : Double integral &#8212; SWD5: Scientific Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://arctraining.github.io/swd5_sc_py/3_scipy/3_scipy.html" />
+    <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Pandas" href="../4_pandas/4_intro_pandas.html" />
+    <link rel="prev" title="Files" href="../2_matplotlib/3_matplotlib.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SWD5: Scientific Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome.html">
+                    SWD5: Scientific Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_numpy.html">
+   Scientific Python 1: NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_matplotlib/3_matplotlib.html">
+   Files
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Example : Double integral
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_pandas/4_intro_pandas.html">
+   Introduction to Pandas
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Visit the <a href="https://arcleeds.github.io/">Research Computing Home Site</a> <div> This book is powered by <a href="https://jupyterbook.org">Jupyter Book</a> </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ARCTraining/swd5_sc_py/main?urlpath=tree/book/3_scipy/3_scipy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ARCTraining/swd5_sc_py/blob/main/book/3_scipy/3_scipy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py/issues/new?title=Issue%20on%20page%20%2F3_scipy/3_scipy.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ARCTraining/swd5_sc_py/edit/main/book/3_scipy/3_scipy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/3_scipy/3_scipy.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-packages">
+   Other packages
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example : Double integral</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-packages">
+   Other packages
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <hr style="border: solid 1px red; margin-bottom: -1% ">
+# Session 4: SciPy
+<hr style="border: solid 1px red; margin-top: 1.5% ">
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Overview
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul class="simple">
+<li><p>NumPy provides arrays and limited additional functionality</p></li>
+<li><p>SciPy builds on NumPy and provides additional modules:</p>
+<ul>
+<li><p>Linear Algebra and wrappers to LAPACK &amp; BLAS <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></p></li>
+<li><p>Numerical Integration <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></p></li>
+<li><p>Interpolation <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code></p></li>
+<li><p>Optimisation <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p></li>
+<li><p>Special functions <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code></p></li>
+<li><p>Signal processing <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code></p></li>
+<li><p>Image Processing <code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code></p></li>
+<li><p>Fourier transforms <code class="docutils literal notranslate"><span class="pre">scipy.fftpack</span></code></p></li>
+<li><p>Statistical functions <code class="docutils literal notranslate"><span class="pre">stats</span></code></p></li>
+<li><p>Spatial data structures and algorithms <code class="docutils literal notranslate"><span class="pre">scipy.spatial</span></code></p></li>
+<li><p>File I/O e.g. to read MATLAB files <code class="docutils literal notranslate"><span class="pre">scipy.io</span></code>
+<br></p></li>
+</ul>
+</li>
+</ul>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Useful links
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul>
+<li><p>Note: no PDE solvers (though other packages exist)</p></li>
+<li><p>Documentation:</p>
+<ul>
+<li><p style="font-size: 100%"> http://docs.scipy.org/doc/scipy/reference/tutorial/ </p>
+</li>
+<li><p style="font-size: 100%"> http://docs.scipy.org/doc/scipy/reference/ </p>
+</li>
+<li><p style="font-size: 100%"> http://scipy-cookbook.readthedocs.org </p></li>
+</ul>
+</li>
+</ul>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Linear algebra
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul>
+<li><p>Wider set of linear algebra operations than in Numpy</p>
+<ul>
+<li><p style="font-size: 100%">various decompositions (eigen, singular value)</p>
+</li>
+<li><p style="font-size: 100%">matrix exponentials, trigonometric functions</p> 
+</li>
+<li><p style="font-size: 100%">particular matrix equations and special matrics</p>
+</li>
+<li><p style="font-size: 100%">low-level LAPACK and BLAS routines</p>
+</li>
+</ul>
+</li>
+<li><p>Routines also for sparse matrices</p>
+<ul>
+<li><p style="font-size: 100%">storage formats</p> 
+</li>
+<li><p style="font-size: 100%">iterative algorithms</p></li>
+</ul>
+</li>
+</ul>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Example: Matrix inverse
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+Consider:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}
+{rrr}
+1 &amp; 3 &amp; 5 \\
+ 2 &amp; 5 &amp; 1 \\
+ 2 &amp; 3 &amp; 8 \\
+\end{array} \right]
+\end{split}\]</div>
+<p>The inverse of <span class="math notranslate nohighlight">\(A\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A^{-1} = 
+\frac{1}{25} \left[ \begin{array}
+{rrr}
+-37 &amp; 9 &amp; 22\\
+14 &amp; 2 &amp; -9 \\ 
+4 &amp; -3 &amp; 1\\
+\end{array} \right]
+\approx
+\left[ \begin{array}
+{rrr}
+-1.48 &amp; 0.36 &amp;  0.88\\
+-0.56 &amp;  0.08 &amp; -0.36 \\ 
+0.16 &amp; -0.12 &amp;  0.04\\
+\end{array} \right]
+\end{split}\]</div>
+<p>which may be confirmed by checking <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity.</p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Exercise 1: Matrix inverse
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Find inverse of matrix A (as defined above). Check the result by multiplying out  <span class="math notranslate nohighlight">\(A A^{-1}\)</span> , which should give
+identity matrix  <span class="math notranslate nohighlight">\(I\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numpy has a function to produce the 2D identity matrix I</span>
+<span class="c1"># query: ?np.eye</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="n">A</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Exercise: Simple single integral</p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Integration: `scipy.integrate`
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul class="simple">
+<li><p>Routines for numerical integration – single, double and triple integrals</p></li>
+<li><p>Can solve Ordinary Differential Equations (ODEs) with initial conditions</p></li>
+</ul>
+<section id="example-double-integral">
+<h1>Example : Double integral<a class="headerlink" href="#example-double-integral" title="Permalink to this headline">#</a></h1>
+<p>Calculate <span class="math notranslate nohighlight">\(\pi\)</span> using the double integral for the area of a circle with radius <span class="math notranslate nohighlight">\(r\)</span>: <br></p>
+<div class="math notranslate nohighlight">
+\[
+\int _{x_{min}} ^{x_{max}}\, dx \int _{g(x)} ^{h(x)} f(x,y) \, dy = \int _{-r} ^{r} \int _{-\sqrt(r^2-x^2)} ^{\sqrt(r^2-x^2)} 1 \, dx\, dy = \pi r^2
+\]</div>
+<p>We will solve this with <code class="docutils literal notranslate"><span class="pre">scipy.integrate.dblquad()</span></code></p>
+<p><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.integrate.dblquad.html">http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.integrate.dblquad.html</a>
+<br>
+<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numerically integrate using dblquad()</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">dblquad</span>
+
+<span class="c1"># order of variables matters! y before x</span>
+
+<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">xminlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">xmaxlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># integral for the area of a circle with radius r</span>
+<span class="k">def</span> <span class="nf">integrate_to_pi</span><span class="p">(</span><span class="n">r</span><span class="p">):</span> 
+    <span class="p">(</span><span class="n">area</span><span class="p">,</span><span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> 
+                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">xminlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">),</span> 
+                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">xmaxlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">area</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Integration : Check result
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Calculate the result and compare with the standard <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load pi_integration_check.py</span>
+<span class="c1"># calculate pi using numerical integration and check result against numpy constant np.pi</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">integrate_to_pi</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+
+<span class="c1"># compare with numpy pi</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">integrate_to_pi</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+
+<span class="c1"># can try timing... (uncomment line below)</span>
+<span class="c1"># %timeit integrate_to_pi(1.0) </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1415926535897967
+-3.552713678800501e-15
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Exercise : Double integral
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Calculate the double integral</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{\pi/2} dx \int_0^1 dy \quad f(x,y)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(x,y) = y sin(x)\)</span>. The answer should be 1/2.
+<br>
+<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the same approach here as above</span>
+
+<span class="k">def</span> <span class="nf">integrand1</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">area</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">area</span><span class="p">,</span> <span class="n">err</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+    <span class="nb">print</span> <span class="n">area</span><span class="p">,</span> <span class="n">err</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: Missing parentheses in call to &#39;print&#39;. Did you mean print(area, err)?
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Solution : Double integral
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load integration.py</span>
+<span class="c1"># Integral x = [0, pi/2] y = [0, 1] f(x,y) = ysin(x)</span>
+<span class="c1"># numerically solve the integral using dblquad</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">dblquad</span>
+
+<span class="c1"># order of arguments matters!</span>
+<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># integrate f(x, y) = y * sin (x)</span>
+<span class="k">def</span> <span class="nf">integrate_this</span><span class="p">():</span> 
+    <span class="p">(</span><span class="n">area</span><span class="p">,</span><span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> 
+                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="n">integrate_this</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Example : Pendulum
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Solve Ordinary Differential Equations (ODEs) with initial conditions, for example motion of simple pendulum.</p>
+<p>A point mass, <span class="math notranslate nohighlight">\(m\)</span>, is attached to the end of a massless rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>. The pendulum is acted on by gravity and friction. We can describe the resulting motion of the pendulum by angle, <span class="math notranslate nohighlight">\(\theta\)</span>, it makes with the vertical.</p>
+<p>&lt;img src=”pendulum.png”; style=”float: right; width: 40%; margin-right: 3%; margin-top: 0%; margin-bottom: -1%”&gt;  <br></p>
+<p>Assuming angle <span class="math notranslate nohighlight">\(\theta\)</span> always remains small, we can write a second-order differential equation to describe the motion of the mass according to Newton’s 2nd law of motion, <span class="math notranslate nohighlight">\(m\,a = F\)</span>, in terms of <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\theta} = -\frac{g}{l}\,\theta - \frac{b}{m}\,\dot\theta
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(b\)</span> is a constant of friction and <span class="math notranslate nohighlight">\(b \ll g\)</span>.</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">odeint</span></code>, we rewrite the above equation as 2 first-order differential equations:</p>
+<p><span class="math notranslate nohighlight">\(
+\dot{\theta} = \omega
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\dot{\omega}= -\frac{g}{l}\,\theta - \frac{b}{m}\,\omega
+\)</span></p>
+</p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Pendulum (cont.)
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p style="font-size: 100%"> Define the ODE as a function and set up parameters and initial values. </p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ode as a function</span>
+
+<span class="c1"># let y be vector  [theta, omega]</span>
+<span class="k">def</span> <span class="nf">pendulumNumerical</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">dydt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters and initial values</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>                <span class="c1"># mass of bob</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mf">1.0</span>                <span class="c1"># length of pendulum</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>               <span class="c1"># friction constant</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>               <span class="c1"># gravitational constant</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="mf">0.01</span>    <span class="c1"># initial angle</span>
+<span class="n">w0</span> <span class="o">=</span> <span class="mf">0.0</span>               <span class="c1"># initial omega</span>
+
+<span class="c1"># create a vector with the initial angle and initial omega</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta0</span><span class="p">,</span> <span class="n">w0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># time interval</span>
+<span class="n">stoptime</span> <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># total number of seconds</span>
+<span class="n">numpoints</span> <span class="o">=</span> <span class="mi">101</span>       <span class="c1"># number of points interval</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">stoptime</span><span class="p">,</span> <span class="n">numpoints</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ODE solver parameters</span>
+<span class="n">abserr</span> <span class="o">=</span> <span class="mf">1.0e-8</span>      <span class="c1"># absolute error tolerance</span>
+<span class="n">relerr</span> <span class="o">=</span> <span class="mf">1.0e-6</span>      <span class="c1"># relative error tolerance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Pendulum (cont.)
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Use <i>odeint</i> to numerically solve the ODE with initial conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import odeint solver</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get solution. Note args are given as a tuple</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">pendulumNumerical</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span><span class="n">atol</span><span class="o">=</span><span class="n">abserr</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">relerr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The ODE can be solved analytically. The exact solutions for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exact solution for theta</span>
+<span class="k">def</span> <span class="nf">pendulumTheta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">l</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">theta0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">root</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">sol</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exact solution for omega</span>
+<span class="k">def</span> <span class="nf">pendulumOmega</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">l</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">root</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">theta0</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">-</span> <span class="n">root</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">sol</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Exercise : Pendulum
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>To see how good the numerical solutions for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> are, plot the exact solutions against the
+numerical solutions for the appropriate range of <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>You should include a legend to label the different lines/points.</p>
+<p>You should find that the numerical solution looks quite good. Can you adjust the parameters above
+(re-execute all the relevant cells) to make it worse?</p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Solution : Pendulum
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load pendulum.py</span>
+<span class="c1"># Plot the numerical and exact solutions for a simple pendulum</span>
+
+<span class="c1"># to inline plots in a notebook, uncomment line below</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;theta(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">pendulumTheta</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact theta(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">pendulumOmega</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;m*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact omega(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;omega(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_scipy_34_0.png" src="../_images/3_scipy_34_0.png" />
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Optimisation
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul class="simple">
+<li><p>Several classical optimisation algorithms</p>
+<ul>
+<li><p>Least squares fitting</p></li>
+<li><p>Quasi-Newton type optimisations</p></li>
+<li><p>Simulated annealing</p></li>
+<li><p>General purpose root finding</p></li>
+</ul>
+</li>
+</ul>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Least-squares fit
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code> to fit some measured data, <span class="math notranslate nohighlight">\(\{x_i,\,y_i\}\)</span>, to a function:</p>
+<div class="math notranslate nohighlight">
+\[
+y\,=\,A\,\sin(2\pi k x \,+\, \theta)
+\]</div>
+<p>where the parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\theta\)</span> are unknown. The residual vector, that will be squared and summed by <code class="docutils literal notranslate"><span class="pre">leastsq</span></code> to fit the data, is:</p>
+<div class="math notranslate nohighlight">
+\[
+e_i\,=\, ∣∣ \, y_i \,− \,A\sin(2\pi k x_i + \theta)∣∣
+\]</div>
+<p>By defining a function to compute the residuals, <span class="math notranslate nohighlight">\(e_i\)</span>, and, selecting appropriate starting values, <code class="docutils literal notranslate"><span class="pre">leastsq</span></code> can be used to find the best-fit parameters <span class="math notranslate nohighlight">\(\hat{A}\)</span>, <span class="math notranslate nohighlight">\(\hat{k}\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.</p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Least-squares fit
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Create a sample of true values, and the “measured” (noisy) data. Define the residual function and initial values.
+<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up true function and &quot;measured&quot; data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6e-2</span><span class="p">,</span> <span class="mf">6e-2</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3e-2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">)</span>
+<span class="n">y_meas</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to compute the residual</span>
+<span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">err</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Least-squares fit
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>For easy evaluation of the model function parameters [A, K, theta], we define a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">peval</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># starting values of A, k and theta</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.3e-2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  8.          43.47826087   1.04719755]
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Least-squares fit
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p style="font-size: 100%">Do least squares fitting and plot results</p><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do least squares fitting</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">leastsq</span>
+
+<span class="n">plsq</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_meas</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  9.3624316   33.06964079   0.60016781]
+[ 10.          33.33333333   0.52359878]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and plot the true function, measured (noisy) data </span>
+<span class="c1"># and the model function with fitted parameters </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">peval</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_meas</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Least-squares fit to noisy data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Fit&#39;</span><span class="p">,</span> <span class="s1">&#39;Noisy&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_scipy_45_0.png" src="../_images/3_scipy_45_0.png" />
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Special functions
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul class="simple">
+<li><p>SciPy contains huge set of special functions</p>
+<ul>
+<li><p>Bessel functions</p></li>
+<li><p>Legendre functions</p></li>
+<li><p>Gamma functions</p></li>
+<li><p>Airy functions</p></li>
+</ul>
+</li>
+</ul>
+<p>We will see special functions used in the following sections.
+<br></p>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Example: `scipy.special`
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul class="simple">
+<li><p>Many problems with circular or cylindrical symmetry have solutions involving Bessel functions</p></li>
+<li><p>E.g., height of a oscillating drumhead related to <span class="math notranslate nohighlight">\(J_n(x)\)</span></p></li>
+</ul>
+<p>We will use</p>
+<p><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/special.html">http://docs.scipy.org/doc/scipy-0.14.0/reference/special.html</a>
+<br>
+<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drumhead example</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+
+<span class="k">def</span> <span class="nf">drumhead_height</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="c1"># kth zero is last element of returned array</span>
+    <span class="n">kth_zero</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">jn_zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">special</span><span class="o">.</span><span class="n">jn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distance</span><span class="o">*</span><span class="n">kth_zero</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">50</span><span class="n">j</span><span class="p">]</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="n">j</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">drumhead_height</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
+<span class="c1"># contd...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Drumhead (cont.)
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<p>Plot the height of a drumhead using a 3-d axis set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...contd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_scipy_53_0.png" src="../_images/3_scipy_53_0.png" />
+</div>
+</div>
+<br>
+<hr style="border: solid 1px red; margin-bottom: 2% ">
+## Summary
+<hr style="border: solid 1px red; margin-bottom: -1%; ">
+<br>
+<ul>
+<li><p style="font-size: 100%">As we have seen, SciPy has a wide range of useful functionality for scientific computing. </p>
+</li>
+<li><p style="font-size: 100%">In case it does not have what you need, there are other packages with specialised functionality. </p>
+</li>
+</ul>
+<section id="other-packages">
+<h2>Other packages<a class="headerlink" href="#other-packages" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p style="font-size: 100%">Pandas</p>
+<ul>
+<li><p style="font-size: 100%">Offers R-like statistical analysis of numerical tables and time series</p>
+</li>
+</ul>
+</li>
+<li><p style="font-size: 100%">SymPy</p>
+<ul>
+<li><p style="font-size: 100%">Python library for symbolic computing</p>
+</li>
+</ul>
+</li>
+<li><p style="font-size: 100%">scikit-image</p>
+<ul>
+<li><p style="font-size: 100%">Advanced image processing</p>
+</li>
+</ul>
+</li>
+<li><p style="font-size: 100%">scikit-learn</p>
+<ul>
+<li><p style="font-size: 100%">Package for machine learning</p>
+</li>
+</ul>
+</li>
+<li><p style="font-size: 100%">Sage</p>
+<ul>
+<li><p style="font-size: 100%">Open source replacement for Mathematica / Maple / Matlab (built using Python)</p>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./3_scipy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../2_matplotlib/3_matplotlib.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Files</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../4_pandas/4_intro_pandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By University of Leeds Research Computing Team<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
