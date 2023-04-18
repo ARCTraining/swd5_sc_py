@@ -1,0 +1,13 @@
+# updating for latest jupyter book version
+
+format: jb-article
+# ===== Main Landing Page ========================================
+root: welcome
+
+# ===== Getting started ==========================================
+
+sections:
+  - file: 1_numpy
+  - file: 2_matplotlib/3_matplotlib.ipynb
+  - file: 3_scipy/3_scipy.ipynb
+  - file: 4_pandas/4_intro_pandas.ipynb
