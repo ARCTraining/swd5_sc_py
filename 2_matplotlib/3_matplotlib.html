@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Files &#8212; SWD5: Scientific Python</title>
+    <title>Matplotlib &#8212; SWD5: Scientific Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example : Double integral" href="../3_scipy/3_scipy.html" />
-    <link rel="prev" title="Scientific Python 1: NumPy" href="../1_numpy.html" />
+    <link rel="prev" title="Pandas" href="../4_pandas/4_intro_pandas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,22 +117,22 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_numpy.html">
-   Scientific Python 1: NumPy
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Files
+   NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../3_scipy/3_scipy.html">
-   Example : Double integral
+   SciPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_pandas/4_intro_pandas.html">
-   Introduction to Pandas
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Matplotlib
   </a>
  </li>
 </ul>
@@ -378,54 +377,61 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-1">
-   Step 1
+  <a class="reference internal nav-link" href="#files">
+   Files
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2">
-   Step 2
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-3">
-   Step 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-4">
-   Step 4
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Step 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Step 2
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Step 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-the-gallery">
-   Check the gallery
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Step 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Step 2
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2">
+     Step 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3">
+     Step 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4">
+     Step 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Step 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Step 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-gallery">
+     Check the gallery
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Step 2
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -436,7 +442,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Files</h1>
+                <h1>Matplotlib</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -447,54 +453,61 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-1">
-   Step 1
+  <a class="reference internal nav-link" href="#files">
+   Files
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2">
-   Step 2
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-3">
-   Step 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-4">
-   Step 4
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Step 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Step 2
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   Step 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-the-gallery">
-   Check the gallery
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   Step 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   Step 2
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2">
+     Step 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3">
+     Step 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4">
+     Step 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Step 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Step 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-the-gallery">
+     Check the gallery
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Step 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Step 2
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -506,10 +519,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <hr style="border: solid 1px red; margin-bottom: -1% ">
-# Session 3: Matplotlib
-<hr style="border: solid 1px red; margin-top: 1.5% ">
-<br>
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h1>
 <br>
 <hr style="border: solid 1px red; margin-bottom: 2% ">
 ## What is matplotlib?
@@ -719,7 +730,7 @@ exercise1.py	    images	   random2.dat
 <br>
 <p>Again, this exercise can be done within the notebook, or with the ipython shell, or by writing a script. Note that the interaction is slightly different in each case.</p>
 <section id="files">
-<h1>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h1>
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h2>
 <p>Check that two associated data files <code class="docutils literal notranslate"><span class="pre">random1.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">random2.dat</span></code> are available.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,7 +753,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <section id="step-1">
-<h2>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">#</a></h2>
+<h3>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">#</a></h3>
 <p>Read in the data from the files using <code class="docutils literal notranslate"><span class="pre">numpy.genfromtxt()</span></code>. You should have two arrays, e.g., <code class="docutils literal notranslate"><span class="pre">data1</span></code> and <code class="docutils literal notranslate"><span class="pre">data2</span></code>. The files contain pairs of values which we will interpret as x and y coordinates. Check what these data look like (that is, check the attributes of the resulting <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -768,7 +779,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </section>
 <section id="step-2">
-<h2>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">#</a></h2>
+<h3>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">#</a></h3>
 <p>Plot <code class="docutils literal notranslate"><span class="pre">data1</span></code> using matplotlib to appear as red crosses (check the online documentation for <code class="docutils literal notranslate"><span class="pre">pyplot.plot</span></code>). You will need x-coordinates <code class="docutils literal notranslate"><span class="pre">data1[:,0]</span></code> and the corresponding y-coordinates</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +794,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </section>
 <section id="step-3">
-<h2>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">#</a></h2>
+<h3>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">#</a></h3>
 <p>Now plot <code class="docutils literal notranslate"><span class="pre">data2</span></code> to appear a green circles connected by a line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -798,7 +809,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </section>
 <section id="step-4">
-<h2>Step 4<a class="headerlink" href="#step-4" title="Permalink to this headline">#</a></h2>
+<h3>Step 4<a class="headerlink" href="#step-4" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>How do we show <code class="docutils literal notranslate"><span class="pre">data1</span></code> and <code class="docutils literal notranslate"><span class="pre">data2</span></code> on the same plot?</p></li>
 <li><p>Can you find out how to add labels to the axes?</p></li>
@@ -1066,7 +1077,7 @@ exercise1.py	    images	   random2.dat
 <img src = "exercise2.png">
 </section>
 <section id="id1">
-<h2>Step 1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h3>Step 1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>You will need three sets of data. For the pie chart you will need to create arrays with the four percentages. The colours are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
 </pre></div>
@@ -1074,7 +1085,7 @@ exercise1.py	    images	   random2.dat
 <p>The two histograms are generated from data in the files <code class="docutils literal notranslate"><span class="pre">uniform.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">normal.dat</span></code> respectively.</p>
 </section>
 <section id="id2">
-<h2>Step 2<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h3>Step 2<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>You will need to create three subplots, the total size of which can be controled by the setting the size of the <em>figure</em> object via</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
 </pre></div>
@@ -1082,7 +1093,7 @@ exercise1.py	    images	   random2.dat
 <p>Make sure the pie chart appears in the first subplot.</p>
 </section>
 <section id="id3">
-<h2>Step 3<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h3>Step 3<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>Check the online documentation for the pie chart to see how to produce it</p>
 <p><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie</a></p>
 <p>And check the documentation for the histogram at</p>
@@ -1160,7 +1171,7 @@ exercise1.py	    images	   random2.dat
 <br>
 </section>
 <section id="check-the-gallery">
-<h2>Check the gallery<a class="headerlink" href="#check-the-gallery" title="Permalink to this headline">#</a></h2>
+<h3>Check the gallery<a class="headerlink" href="#check-the-gallery" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a></p>
 <br><br>
 <hr style="border: solid 1px red; margin-bottom: 2% ">
@@ -1224,11 +1235,11 @@ exercise1.py	    images	   random2.dat
 <br>
 </section>
 <section id="id4">
-<h2>Step 1<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h3>Step 1<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Copy the settings provided above (or create some of your own) to a file</p>
 </section>
 <section id="id5">
-<h2>Step 2<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h3>Step 2<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>In a separate notebook or python script, recreate the 3-subplot figure of the previous exercise with the new settings.</p>
 <br>
 <hr style="border: solid 1px red; margin-bottom: 2% ">
@@ -1279,6 +1290,7 @@ exercise1.py	    images	   random2.dat
 <br>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1307,19 +1319,12 @@ exercise1.py	    images	   random2.dat
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../1_numpy.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../4_pandas/4_intro_pandas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Scientific Python 1: NumPy</p>
+            <p class="prev-next-title">Pandas</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../3_scipy/3_scipy.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Example : Double integral</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
