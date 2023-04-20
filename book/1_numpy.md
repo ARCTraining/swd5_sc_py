@@ -1,4 +1,4 @@
-# Scientific Python 1: NumPy
+# NumPy
 
 The most fundamental third-party package for scientific computing in Python is NumPy, which provides multidimensional **array** data types, along with a range of functions and methods to manipulate them. Other third-party packages, including Pandas (which we will look at next session), use NumPy arrays as backends for more specialized data structures.
 
