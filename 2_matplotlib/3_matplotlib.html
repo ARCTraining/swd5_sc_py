@@ -377,10 +377,45 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
+  <a class="reference internal nav-link" href="#what-is-matplotlib">
+   What is matplotlib?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-it-do">
+   What does it do?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-concepts">
+   Basic concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-plotting">
+   Basic plotting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-images-to-file">
+   Saving images to file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note">
+   Note
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-data-from-a-file">
+   Plot data from a file
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0">
+     Step 0
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-1">
      Step 1
@@ -401,37 +436,115 @@ title="Print to PDF"
      Step 4
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customisation">
+   Customisation
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Step 1
+    <a class="reference internal nav-link" href="#figure-size">
+     Figure size
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Step 2
+    <a class="reference internal nav-link" href="#lines">
+     Lines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Step 3
+    <a class="reference internal nav-link" href="#markers">
+     Markers
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axes-and-labels">
+     Axes and labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tickmarks">
+     Tickmarks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotations">
+     Annotations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subplots">
+   Subplots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axes-object">
+     Axes object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-subplots-using-subplot2grid">
+     General subplots using subplot2grid
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-three-plots">
+     Example: Three plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-data">
+       Step 1: Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-plotting-frame">
+       Step 2: Plotting frame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-plotting-customisation">
+       Step 3: Plotting &amp; Customisation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-type-of-plots-settings">
+   Other type of plots &amp; settings
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#check-the-gallery">
      Check the gallery
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Step 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Step 2
+    <a class="reference internal nav-link" href="#cheatsheets-handouts">
+     Cheatsheets &amp; Handouts
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customisation-matplotlibrc-settings">
+   Customisation : matplotlibrc settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-topic-matplotlib-frontend-and-backend">
+   Advanced topic : Matplotlib frontend and backend
+  </a>
  </li>
 </ul>
 
@@ -453,10 +566,45 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#files">
-   Files
+  <a class="reference internal nav-link" href="#what-is-matplotlib">
+   What is matplotlib?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-does-it-do">
+   What does it do?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-concepts">
+   Basic concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-plotting">
+   Basic plotting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-images-to-file">
+   Saving images to file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note">
+   Note
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-data-from-a-file">
+   Plot data from a file
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0">
+     Step 0
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#step-1">
      Step 1
@@ -477,37 +625,115 @@ title="Print to PDF"
      Step 4
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customisation">
+   Customisation
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Step 1
+    <a class="reference internal nav-link" href="#figure-size">
+     Figure size
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Step 2
+    <a class="reference internal nav-link" href="#lines">
+     Lines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Step 3
+    <a class="reference internal nav-link" href="#markers">
+     Markers
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axes-and-labels">
+     Axes and labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tickmarks">
+     Tickmarks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotations">
+     Annotations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subplots">
+   Subplots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#axes-object">
+     Axes object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-subplots-using-subplot2grid">
+     General subplots using subplot2grid
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-three-plots">
+     Example: Three plots
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-data">
+       Step 1: Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-plotting-frame">
+       Step 2: Plotting frame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-plotting-customisation">
+       Step 3: Plotting &amp; Customisation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-type-of-plots-settings">
+   Other type of plots &amp; settings
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#check-the-gallery">
      Check the gallery
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Step 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Step 2
+    <a class="reference internal nav-link" href="#cheatsheets-handouts">
+     Cheatsheets &amp; Handouts
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customisation-matplotlibrc-settings">
+   Customisation : matplotlibrc settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-topic-matplotlib-frontend-and-backend">
+   Advanced topic : Matplotlib frontend and backend
+  </a>
  </li>
 </ul>
 
@@ -521,11 +747,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
 <h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h1>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## What is matplotlib?
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+<section id="what-is-matplotlib">
+<h2>What is matplotlib?<a class="headerlink" href="#what-is-matplotlib" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Matplotlib is a plotting library for Python</p>
 <ul>
@@ -548,11 +771,9 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## What does it do?
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="what-does-it-do">
+<h2>What does it do?<a class="headerlink" href="#what-does-it-do" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>People often want to have a quick look at data</p>
 <ul>
@@ -575,12 +796,10 @@ title="Print to PDF"
 </li>
 <li><p>All methods allow you to save your work</p></li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Basic concepts
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>&lt;img src=”figuremap.png”; style=”float: right; width: 45%; margin-right: 2%; margin-top: 0%; margin-bottom: 1%”&gt;</p>
+</section>
+<section id="basic-concepts">
+<h2>Basic concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">#</a></h2>
+<img src="figuremap.png" style="width: 30%">
 <ul class="simple">
 <li><p>Everything is assembled by Python commands</p></li>
 <li><p>Create a figure with an axes area (this is the plotting area)</p></li>
@@ -589,11 +808,9 @@ title="Print to PDF"
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">show()</span></code> to display the plot</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> contains the high-level functions we need to do all the above and more</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Basic plotting
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="basic-plotting">
+<h2>Basic plotting<a class="headerlink" href="#basic-plotting" title="Permalink to this headline">#</a></h2>
 <p>Import numpy (alias np) and matplotlib’s plotting functionality via the pyplot interface (alias plt)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -614,10 +831,14 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some data points for y = cos(x) using numpy</span>
+
+<span class="c1"># defining x-array</span>
 <span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">xmax</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">npts</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">npts</span><span class="p">)</span> 
+
+<span class="c1"># defining y-array, based on x-array</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -625,7 +846,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;gs&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;gs&#39;</span><span class="p">)</span> <span class="c1"># &#39;gs&#39;: green square</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -634,11 +855,9 @@ title="Print to PDF"
 <img alt="../_images/3_matplotlib_7_0.png" src="../_images/3_matplotlib_7_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Saving images to file
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="saving-images-to-file">
+<h2>Saving images to file<a class="headerlink" href="#saving-images-to-file" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Use, e.g., <code class="docutils literal notranslate"><span class="pre">pyplot.savefig()</span></code></p></li>
 <li><p>File format is determined from the filename extension you supply</p></li>
@@ -647,73 +866,35 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!rm cos_plot*</span>
-<span class="o">!</span>ls
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;gs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cos_gs_plot.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3_matplotlib.ipynb  exercise2.png  matplotlibrc.test  subplot2grid.png
-cos_plot.pdf	    exercise2.py   normal.dat	      subplotgrid.png
-cos_plot.png	    figuremap.png  random1.dat	      uniform.dat
-exercise1.py	    images	   random2.dat
-</pre></div>
-</div>
+<img alt="../_images/3_matplotlib_9_0.png" src="../_images/3_matplotlib_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.dat&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">files</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;random2.dat&#39;, &#39;normal.dat&#39;, &#39;random1.dat&#39;, &#39;uniform.dat&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save image to file in different formats</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cos_plot.pdf&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save image to file in different formats &amp; options</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cos_plot_bc.pdf&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cos_plot.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_11_0.png" src="../_images/3_matplotlib_11_0.png" />
+<img alt="../_images/3_matplotlib_10_0.png" src="../_images/3_matplotlib_10_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check image has been saved</span>
-<span class="o">!</span>ls
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3_matplotlib.ipynb  exercise2.png  matplotlibrc.test  subplot2grid.png
-cos_plot.pdf	    exercise2.py   normal.dat	      subplotgrid.png
-cos_plot.png	    figuremap.png  random1.dat	      uniform.dat
-exercise1.py	    images	   random2.dat
-</pre></div>
-</div>
-</div>
-</div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Note
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is a very large package, an has a great many objects and methods (functions). This can be confusing.</p>
 <p>Make sure you are looking at documentation for <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></p>
-<p><a class="reference external" href="http://matplotlib.org/api/pyplot_summary.html">http://matplotlib.org/api/pyplot_summary.html</a></p>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html">https://matplotlib.org/stable/api/pyplot_summary.html</a></p>
 <p>Can help to use fully qualified names:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
@@ -723,35 +904,57 @@ exercise1.py	    images	   random2.dat
 </pre></div>
 </div>
 <p>to make sure you are getting the right methods.</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise 1: Plot data from a file
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Again, this exercise can be done within the notebook, or with the ipython shell, or by writing a script. Note that the interaction is slightly different in each case.</p>
-<section id="files">
-<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">#</a></h2>
-<p>Check that two associated data files <code class="docutils literal notranslate"><span class="pre">random1.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">random2.dat</span></code> are available.</p>
+</section>
+<section id="plot-data-from-a-file">
+<h2>Plot data from a file<a class="headerlink" href="#plot-data-from-a-file" title="Permalink to this headline">#</a></h2>
+<section id="step-0">
+<h3>Step 0<a class="headerlink" href="#step-0" title="Permalink to this headline">#</a></h3>
+<p>Download two associated data files <code class="docutils literal notranslate"><span class="pre">random1.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">random2.dat</span></code> from our GitHub repo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>-5<span class="w"> </span>random2.dat
-<span class="o">!</span>wc<span class="w"> </span>-l<span class="w"> </span>random2.dat
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/random1.dat
+<span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/random2.dat
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.00000    0.16414
-   0.10000    0.99956
-   0.20000    0.14035
-   0.30000    0.47085
-   0.40000    0.97627
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-04-26 10:23:27--  https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/random1.dat
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150 random2.dat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 3300 (3.2K) [text/plain]
+Saving to: ‘random1.dat.1’
+
+
+random1.dat.1         0%[                    ]       0  --.-KB/s               
+random1.dat.1       100%[===================&gt;]   3.22K  --.-KB/s    in 0s      
+
+2023-04-26 10:23:27 (42.0 MB/s) - ‘random1.dat.1’ saved [3300/3300]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-04-26 10:23:27--  https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/random2.dat
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 3300 (3.2K) [text/plain]
+Saving to: ‘random2.dat.1’
+
+
+random2.dat.1         0%[                    ]       0  --.-KB/s               
+random2.dat.1       100%[===================&gt;]   3.22K  --.-KB/s    in 0s      
+
+2023-04-26 10:23:27 (39.9 MB/s) - ‘random2.dat.1’ saved [3300/3300]
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section id="step-1">
 <h3>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">#</a></h3>
 <p>Read in the data from the files using <code class="docutils literal notranslate"><span class="pre">numpy.genfromtxt()</span></code>. You should have two arrays, e.g., <code class="docutils literal notranslate"><span class="pre">data1</span></code> and <code class="docutils literal notranslate"><span class="pre">data2</span></code>. The files contain pairs of values which we will interpret as x and y coordinates. Check what these data look like (that is, check the attributes of the resulting <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays).</p>
@@ -789,7 +992,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_20_0.png" src="../_images/3_matplotlib_20_0.png" />
+<img alt="../_images/3_matplotlib_18_0.png" src="../_images/3_matplotlib_18_0.png" />
 </div>
 </div>
 </section>
@@ -804,7 +1007,7 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_22_0.png" src="../_images/3_matplotlib_22_0.png" />
+<img alt="../_images/3_matplotlib_20_0.png" src="../_images/3_matplotlib_20_0.png" />
 </div>
 </div>
 </section>
@@ -821,28 +1024,74 @@ exercise1.py	    images	   random2.dat
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;dataset 1&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;dataset 2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x co-ordinate&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y co-ordinate&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ co-ordinate&quot;</span><span class="p">)</span> <span class="c1"># add the r&#39;text&#39; transform the text into LaTeX text. It is useful for math.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_24_0.png" src="../_images/3_matplotlib_24_0.png" />
+<img alt="../_images/3_matplotlib_22_0.png" src="../_images/3_matplotlib_22_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Line and marker styles
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>There are many ways to customise a plot. These may involve interaction with other <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> objects, e.g.,</p>
+</section>
+</section>
+<section id="customisation">
+<h2>Customisation<a class="headerlink" href="#customisation" title="Permalink to this headline">#</a></h2>
+<p>There are many ways to customise a plot. These may involve interaction with other <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> objects.</p>
+<section id="figure-size">
+<h3>Figure size<a class="headerlink" href="#figure-size" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the figure size and add a plot (uses x and y from one of the</span>
-<span class="c1"># above cells). The figure size (in inches) can be specified</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the figure size and add a plot</span>
+<span class="c1"># The figure size (in inches) can be specified</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_matplotlib_25_0.png" src="../_images/3_matplotlib_25_0.png" />
+</div>
+</div>
+</section>
+<section id="lines">
+<h3>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle">documentation</a></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>linestyle</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘-’ or ‘solid’</p></td>
+<td><p>solid line</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘–’ or ‘dashed’</p></td>
+<td><p>dashed line</p></td>
+</tr>
+<tr class="row-even"><td><p>‘-.’ or ‘dashdot’</p></td>
+<td><p>dash-dotted line</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘:’ or ‘dotted’</p></td>
+<td><p>dotted line</p></td>
+</tr>
+<tr class="row-even"><td><p>‘none’, ‘None’, ‘ ‘, or ‘’</p></td>
+<td><p>draw nothing</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The linewidth, and linestyle can be changed.</span>
+<span class="c1"># Note that for standard colours, you can define with the linestyle</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
+
+<span class="c1"># you can specify the color name uder &quot;color=&quot; or &quot;c=&quot;</span>
+<span class="c1"># you can use &quot;lw=&quot; instead &quot;linewidth=&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -851,36 +1100,17 @@ exercise1.py	    images	   random2.dat
 <img alt="../_images/3_matplotlib_27_0.png" src="../_images/3_matplotlib_27_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The linewidth, and linestyle can be changed.</span>
-<span class="c1"># Linestyles include &#39;-&#39;, &#39;.-&#39;, &#39;:&#39;, &#39;--&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_28_0.png" src="../_images/3_matplotlib_28_0.png" />
-</div>
-</div>
+</section>
+<section id="markers">
+<h3>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">#</a></h3>
+<p>See <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers"><code class="docutils literal notranslate"><span class="pre">markers</span></code></a>  for full description of possible arguments.</p>
+<p>Define a marker and change sizes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Markers and their properties can be controlled.</span>
 <span class="c1"># Unfilled markers: &#39;.&#39;,+&#39;,&#39;x&#39;,&#39;1&#39; to &#39;4&#39;,&#39;|&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_29_0.png" src="../_images/3_matplotlib_29_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filled markers include: &#39;o&#39;, &#39;s&#39;,&#39;*&#39;,&#39;d&#39;,&#39;&gt;&#39;,&#39;^&#39;,&#39;v&#39;, &#39;p&#39;, &#39;h&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -889,18 +1119,14 @@ exercise1.py	    images	   random2.dat
 <img alt="../_images/3_matplotlib_30_0.png" src="../_images/3_matplotlib_30_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Axes and labels
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Set x-axis and y-axis limits, adjust title font properties.</p>
+<p>For a filled marker, change face colour, edge colour, edge width, and size.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set axis limits</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="n">xmax</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">xmax</span><span class="o">*</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xmin</span><span class="o">*</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xmax</span><span class="o">*</span><span class="mf">0.75</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;mo-&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filled markers include: &#39;o&#39;, &#39;s&#39;,&#39;*&#39;,&#39;d&#39;,&#39;&gt;&#39;,&#39;^&#39;,&#39;v&#39;, &#39;p&#39;, &#39;h&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># you can use short for most attributes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">mfc</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">mec</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -909,47 +1135,111 @@ exercise1.py	    images	   random2.dat
 <img alt="../_images/3_matplotlib_32_0.png" src="../_images/3_matplotlib_32_0.png" />
 </div>
 </div>
+<p>Combine marker and lines</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;o-r&quot;</span><span class="p">,</span> <span class="n">mfc</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">mec</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">mfc</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">mec</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_matplotlib_34_0.png" src="../_images/3_matplotlib_34_0.png" />
+</div>
+</div>
+</section>
+<section id="axes-and-labels">
+<h3>Axes and labels<a class="headerlink" href="#axes-and-labels" title="Permalink to this headline">#</a></h3>
+<p>Set x-axis and y-axis limits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;mo-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="n">xmax</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">xmax</span><span class="o">*</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xmin</span><span class="o">*</span><span class="mf">0.25</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xmax</span><span class="o">*</span><span class="mf">0.75</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_matplotlib_36_0.png" src="../_images/3_matplotlib_36_0.png" />
+</div>
+</div>
+<p>Adjust title.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set title placement and font properties</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;A plot of $cos(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 
 <span class="c1"># Location of the title can be controled via &quot;loc&quot;: center, left, right</span>
 <span class="c1">#&quot;verticalalignment&quot;: center, top, bottom, baseline</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A Placed Title&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span> <span class="o">=</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_33_0.png" src="../_images/3_matplotlib_33_0.png" />
+<img alt="../_images/3_matplotlib_38_0.png" src="../_images/3_matplotlib_38_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Tickmarks and annotations
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Add custom tickmarks and annotations.</p>
+</section>
+<section id="tickmarks">
+<h3>Tickmarks<a class="headerlink" href="#tickmarks" title="Permalink to this headline">#</a></h3>
+<p>Add custom tickmarks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tick marks: take the default, or set explicitly</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mf">3.5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="c1"># define new position for the ticks</span>
 <span class="n">nticks</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">tickpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">nticks</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;tick&#39;</span><span class="p">],</span> <span class="n">nticks</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">tickpos</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">tickpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">nticks</span><span class="p">)</span>
+
+<span class="c1"># rotate the ticks (degrees)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">tickpos</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_35_0.png" src="../_images/3_matplotlib_35_0.png" />
+<img alt="../_images/3_matplotlib_40_0.png" src="../_images/3_matplotlib_40_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="c1"># set arbitrary values</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+
+<span class="c1"># choose a different colour/size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">tickpos</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7ff4b8d8bc70&gt;,
+  &lt;matplotlib.axis.XTick at 0x7ff4b8d8b940&gt;,
+  &lt;matplotlib.axis.XTick at 0x7ff4b8de65e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7ff4b8f71b50&gt;],
+ [Text(0.0, 0, &#39;A&#39;),
+  Text(3.3333333333333335, 0, &#39;B&#39;),
+  Text(6.666666666666667, 0, &#39;C&#39;),
+  Text(10.0, 0, &#39;D&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/3_matplotlib_41_1.png" src="../_images/3_matplotlib_41_1.png" />
+</div>
+</div>
+</section>
+<section id="annotations">
+<h3>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Arrows and annotations</span>
@@ -964,15 +1254,14 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_36_0.png" src="../_images/3_matplotlib_36_0.png" />
+<img alt="../_images/3_matplotlib_43_0.png" src="../_images/3_matplotlib_43_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Subplots
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>&lt;img src=”subplotgrid.png”; style=”float: right; width: 50%; margin-right: 5%; margin-top: 0%; margin-bottom: 1%”&gt;</p>
+</section>
+</section>
+<section id="subplots">
+<h2>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">#</a></h2>
+<img src="subplotgrid.png" style="width: 50%">
 <ul class="simple">
 <li><p>There can be multiple plots, or subplots, within a figure</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">subplot()</span></code> to place plots on a regular grid</p></li>
@@ -989,51 +1278,59 @@ exercise1.py	    images	   random2.dat
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Subplots and axes objects
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+<p>Create subplots</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_matplotlib_46_0.png" src="../_images/3_matplotlib_46_0.png" />
+</div>
+</div>
+<section id="axes-object">
+<h3>Axes object<a class="headerlink" href="#axes-object" title="Permalink to this headline">#</a></h3>
 <p>Can move between subplots by keeping a reference to the <code class="docutils literal notranslate"><span class="pre">axes</span></code> array</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r:&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_39_0.png" src="../_images/3_matplotlib_39_0.png" />
+<img alt="../_images/3_matplotlib_48_0.png" src="../_images/3_matplotlib_48_0.png" />
 </div>
 </div>
+<p>Configure spaces for better visualisation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Space between subplots may be adjusted.</span>
 <span class="c1"># subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)</span>
 <span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">hspace</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_40_0.png" src="../_images/3_matplotlib_40_0.png" />
+<img alt="../_images/3_matplotlib_50_0.png" src="../_images/3_matplotlib_50_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## General subplots using subplot2grid 
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>&lt;img src=”subplot2grid.png”; style=”float: right; width: 50%; margin-right: 5%; margin-top: 0%; margin-bottom: 1%”&gt;</p>
+</section>
+<section id="general-subplots-using-subplot2grid">
+<h3>General subplots using subplot2grid<a class="headerlink" href="#general-subplots-using-subplot2grid" title="Permalink to this headline">#</a></h3>
+<img src="subplot2grid.png" style="width: 50%">
 <ul class="simple">
 <li><p>For more control over subplot layout, use <code class="docutils literal notranslate"><span class="pre">subplot2grid()</span></code></p></li>
 </ul>
@@ -1044,10 +1341,9 @@ exercise1.py	    images	   random2.dat
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Subplots can span more than one row or column</p></p></li>
+<li><p>Subplots can span more than one row or column</p></li>
 </ul>
-<br>
-<br><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For example: subplot2grid(shape, loc, rowspan=1, colspan=1)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -1056,6 +1352,7 @@ exercise1.py	    images	   random2.dat
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
@@ -1065,91 +1362,126 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_42_0.png" src="../_images/3_matplotlib_42_0.png" />
+<img alt="../_images/3_matplotlib_52_0.png" src="../_images/3_matplotlib_52_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise 2: Three plots
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="example-three-plots">
+<h3>Example: Three plots<a class="headerlink" href="#example-three-plots" title="Permalink to this headline">#</a></h3>
 <p>We are now going to try to create a plot, using <code class="docutils literal notranslate"><span class="pre">subplots()</span></code>,  which looks like:</p>
 <img src = "exercise2.png">
-</section>
-<section id="id1">
-<h3>Step 1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>You will need three sets of data. For the pie chart you will need to create arrays with the four percentages. The colours are:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>The two histograms are generated from data in the files <code class="docutils literal notranslate"><span class="pre">uniform.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">normal.dat</span></code> respectively.</p>
-</section>
-<section id="id2">
-<h3>Step 2<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<p>You will need to create three subplots, the total size of which can be controled by the setting the size of the <em>figure</em> object via</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Make sure the pie chart appears in the first subplot.</p>
-</section>
-<section id="id3">
-<h3>Step 3<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<p>Check the online documentation for the pie chart to see how to produce it</p>
-<p><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie</a></p>
-<p>And check the documentation for the histogram at</p>
-<p><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.hist">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.hist</a></p>
-<p><br><br></p>
+<section id="step-1-data">
+<h4>Step 1: Data<a class="headerlink" href="#step-1-data" title="Permalink to this headline">#</a></h4>
+<p>You will need three sets of data.</p>
+<ul class="simple">
+<li><p>For the pie chart you will need to create arrays with the four percentages.</p></li>
+<li><p>The two histograms are generated from data in the files <code class="docutils literal notranslate"><span class="pre">uniform.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">normal.dat</span></code> respectively.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>-5<span class="w"> </span><span class="s1">&#39;normal.dat&#39;</span>
-<span class="o">!</span>wc<span class="w"> </span>-l<span class="w"> </span><span class="s1">&#39;normal.dat&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Pie data</span>
+<span class="n">pie_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">pie_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="c1">#Histogram 1 data</span>
+<span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/uniform.dat
+<span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;uniform.dat&#39;</span><span class="p">)</span>
+
+<span class="c1">#Histogram 2 data</span>
+<span class="o">!</span>wget<span class="w"> </span>https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/normal.dat
+<span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;normal.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3.7327131e-01
- 1.5928456e+00
- 1.9736496e+00
--2.3240282e+00
- 6.9227109e-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-04-26 10:23:31--  https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/uniform.dat
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000 normal.dat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 15000 (15K) [text/plain]
+Saving to: ‘uniform.dat.1’
+
+
+uniform.dat.1         0%[                    ]       0  --.-KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform.dat.1       100%[===================&gt;]  14.65K  --.-KB/s    in 0.002s  
+
+2023-04-26 10:23:31 (8.32 MB/s) - ‘uniform.dat.1’ saved [15000/15000]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-04-26 10:23:31--  https://raw.githubusercontent.com/ARCTraining/swd5_sc_py/main/book/2_matplotlib/normal.dat
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 15000 (15K) [text/plain]
+Saving to: ‘normal.dat.1’
+
+
+normal.dat.1          0%[                    ]       0  --.-KB/s               
+normal.dat.1        100%[===================&gt;]  14.65K  --.-KB/s    in 0s      
+
+2023-04-26 10:23:31 (79.3 MB/s) - ‘normal.dat.1’ saved [15000/15000]
 </pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="step-2-plotting-frame">
+<h4>Step 2: Plotting frame<a class="headerlink" href="#step-2-plotting-frame" title="Permalink to this headline">#</a></h4>
+<p>You will need to create three subplots, the total size of which can be controlled by the setting the size of the <em>figure</em> object via</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make sure the pie chart appears in the first subplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3_matplotlib_56_0.png" src="../_images/3_matplotlib_56_0.png" />
+</div>
+</div>
+</section>
+<section id="step-3-plotting-customisation">
+<h4>Step 3: Plotting &amp; Customisation<a class="headerlink" href="#step-3-plotting-customisation" title="Permalink to this headline">#</a></h4>
+<p>Check the online documentation for the pie chart to see how to produce it</p>
+<p><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.pie</a></p>
+<p>And check the documentation for the histogram at</p>
+<p><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.hist">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.hist</a></p>
+<p>The pie chart colours are:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
+</pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span> <span class="p">(</span><span class="s2">&quot;Three plots&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span> <span class="p">(</span><span class="s2">&quot;Three plots&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1">#Pie chart</span>
-<span class="n">pie_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
-<span class="n">pie_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="n">pie_colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">]</span>
 <span class="n">pie_radius</span> <span class="o">=</span> <span class="mf">1.5</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">pie_sizes</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">pie_labels</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">pie_colours</span><span class="p">,</span> 
         <span class="n">radius</span> <span class="o">=</span> <span class="n">pie_radius</span><span class="p">,</span> <span class="n">startangle</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> <span class="n">autopct</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%1.0f%%</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1">#Histogram 1</span>
-<span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;uniform.dat&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$P(x)$&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
 
-
 <span class="c1">#Histogram 2</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;normal.dat&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -1161,23 +1493,30 @@ exercise1.py	    images	   random2.dat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_45_0.png" src="../_images/3_matplotlib_45_0.png" />
+<img alt="../_images/3_matplotlib_58_0.png" src="../_images/3_matplotlib_58_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Other type of plots
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
 </section>
+</section>
+</section>
+<section id="other-type-of-plots-settings">
+<h2>Other type of plots &amp; settings<a class="headerlink" href="#other-type-of-plots-settings" title="Permalink to this headline">#</a></h2>
 <section id="check-the-gallery">
 <h3>Check the gallery<a class="headerlink" href="#check-the-gallery" title="Permalink to this headline">#</a></h3>
-<p><a class="reference external" href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a></p>
-<br><br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Customisation : matplotlibrc settings
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+<p><a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">https://matplotlib.org/stable/gallery/index.html</a></p>
+</section>
+<section id="cheatsheets-handouts">
+<h3>Cheatsheets &amp; Handouts<a class="headerlink" href="#cheatsheets-handouts" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/cheatsheets/cheatsheets.pdf">Cheatsheets</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/cheatsheets/handout-beginner.pdf">Handout beginner</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/cheatsheets/handout-intermediate.pdf">Handout intermediate</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/cheatsheets/handout-tips.pdf">Tips</a></p></li>
+</ul>
+</section>
+</section>
+<section id="customisation-matplotlibrc-settings">
+<h2>Customisation : matplotlibrc settings<a class="headerlink" href="#customisation-matplotlibrc-settings" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Particular settings for <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> can be stored in a file called the <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> file</p></li>
 </ul>
@@ -1189,31 +1528,8 @@ exercise1.py	    images	   random2.dat
 <ul class="simple">
 <li><p>You would edit the <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> for different journal or presentation styles, for example. You could have a separate <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> for each type of style</p></li>
 </ul>
-<p>See <a class="reference external" href="http://matplotlib.org/users/customizing.html">http://matplotlib.org/users/customizing.html</a>
-<br>
-<br></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
-
-<span class="c1"># This is read at start-up, so may need to restart the session</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc_file</span><span class="p">(</span><span class="s2">&quot;matplotlibrc.test&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_matplotlib_49_0.png" src="../_images/3_matplotlib_49_0.png" />
-</div>
-</div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## matplotlibrc settings
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Example</p>
+<p>See <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html">https://matplotlib.org/stable/tutorials/introductory/customizing.html</a></p>
+<p>Settings Example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span><span class="o">.</span><span class="n">labelsize</span>  <span class="p">:</span> <span class="mf">9.0</span>
 <span class="n">xtick</span><span class="o">.</span><span class="n">labelsize</span> <span class="p">:</span> <span class="mf">9.0</span>
 <span class="n">ytick</span><span class="o">.</span><span class="n">labelsize</span> <span class="p">:</span> <span class="mf">9.0</span>
@@ -1228,24 +1544,9 @@ exercise1.py	    images	   random2.dat
 <span class="n">text</span><span class="o">.</span><span class="n">usetex</span> <span class="p">:</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise 3: Custom configurations
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
 </section>
-<section id="id4">
-<h3>Step 1<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
-<p>Copy the settings provided above (or create some of your own) to a file</p>
-</section>
-<section id="id5">
-<h3>Step 2<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<p>In a separate notebook or python script, recreate the 3-subplot figure of the previous exercise with the new settings.</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Summary 
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Builds on <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
 <li><p>Simple, interactive plotting</p></li>
@@ -1253,15 +1554,9 @@ exercise1.py	    images	   random2.dat
 <li><p>Good enough for publication quality images</p></li>
 <li><p>Can be customised for different scenarios</p></li>
 </ul>
-<br>
-<ul class="simple">
-<li><p>Next: SciPy</p></li>
-</ul>
-<br><br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Advanced topic : Matplotlib frontend and backend
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="advanced-topic-matplotlib-frontend-and-backend">
+<h2>Advanced topic : Matplotlib frontend and backend<a class="headerlink" href="#advanced-topic-matplotlib-frontend-and-backend" title="Permalink to this headline">#</a></h2>
 <p>Matplotlib consists of two parts, a frontend and a backend:</p>
 <ul class="simple">
 <li><p>Frontend : the user facing code i.e the interface</p></li>
@@ -1272,8 +1567,8 @@ exercise1.py	    images	   random2.dat
 <li><p>User interface, or <em>interactive</em>, backends</p></li>
 <li><p>Hardcopy, or <em>non-interactive</em>, backends to make image files</p></li>
 <li><p>e.g. Agg (png), Cairo (svg), PDF (pdf), PS (eps, ps)</p></li>
-<li><p>Check which backend is being used with</p></li>
 </ul>
+<p>Check which backend is being used with</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1286,9 +1581,7 @@ exercise1.py	    images	   random2.dat
 </pre></div>
 </div>
 <p>For more information:</p>
-<p><a class="reference external" href="http://matplotlib.org/faq/usage_faq.html#what-is-a-backend">http://matplotlib.org/faq/usage_faq.html#what-is-a-backend</a></p>
-<br>
-</section>
+<p><a class="reference external" href="https://matplotlib.org/stable/users/explain/backends.html#backends">https://matplotlib.org/stable/users/explain/backends.html#backends</a></p>
 </section>
 </section>
 
