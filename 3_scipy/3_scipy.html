@@ -380,8 +380,196 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-double-integral">
-   Example : Double integral
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-links">
+   Useful links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-algebra-sicpy-linalg">
+   Linear algebra:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sicpy.linalg
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-matrix-inverse">
+     Example: Matrix inverse
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-find-inverse-of-matrix-a-as-defined-above">
+       (a) Find inverse of matrix A (as defined above).
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-check-the-result-by-inverting-the-result-which-should-return-the-original-matrix-a">
+       (b) Check the result by inverting the result, which should return the original matrix
+       <span class="math notranslate nohighlight">
+        \(A\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-the-result-by-multiplying-out-a-a-1-which-should-give-identity-matrix-i">
+       (c) Check the result by multiplying out
+       <span class="math notranslate nohighlight">
+        \(A A^{-1}\)
+       </span>
+       , which should give identity matrix
+       <span class="math notranslate nohighlight">
+        \(I\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-linear-equation">
+   Example: Linear equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration-scipy-integrate">
+   Integration:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.integrate
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-double-integral-digit-boundary">
+     Example : Double integral - digit boundary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-double-integral-function-boundary">
+     Example: Double integral - function boundary
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-1-simplify-by-considering-r-1">
+       Solution 1: simplify by considering
+       <span class="math notranslate nohighlight">
+        \(r=1\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-2-generalise-for-any-r-value">
+       Solution 2: generalise for any
+       <span class="math notranslate nohighlight">
+        \(r\)
+       </span>
+       value
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pi-check-result">
+       PI: Check result
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordinary-differential-equations-sicpy-odeint">
+   Ordinary Differential Equations:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sicpy.odeint
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-pendulum">
+     Example: Pendulum
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-defining-values">
+       Pendulum: Defining values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-defining-ode">
+       Pendulum: Defining ODE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-solving-ode">
+       Pendulum: Solving ODE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-exact-solution-plotting">
+       Pendulum: Exact solution &amp; Plotting
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimisation-scipy-optimize-leastsq">
+   Optimisation:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.optimize.leastsq
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-sin-function">
+     Example: sin function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-initial-values">
+       Defining initial values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function-definitions">
+       Function definitions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#experimental-data">
+       Experimental data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parameter-estimation">
+       Parameter estimation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-the-results">
+       Looking the results
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -411,8 +599,196 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-double-integral">
-   Example : Double integral
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-links">
+   Useful links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-algebra-sicpy-linalg">
+   Linear algebra:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sicpy.linalg
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-matrix-inverse">
+     Example: Matrix inverse
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-find-inverse-of-matrix-a-as-defined-above">
+       (a) Find inverse of matrix A (as defined above).
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-check-the-result-by-inverting-the-result-which-should-return-the-original-matrix-a">
+       (b) Check the result by inverting the result, which should return the original matrix
+       <span class="math notranslate nohighlight">
+        \(A\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-the-result-by-multiplying-out-a-a-1-which-should-give-identity-matrix-i">
+       (c) Check the result by multiplying out
+       <span class="math notranslate nohighlight">
+        \(A A^{-1}\)
+       </span>
+       , which should give identity matrix
+       <span class="math notranslate nohighlight">
+        \(I\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-linear-equation">
+   Example: Linear equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration-scipy-integrate">
+   Integration:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.integrate
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-double-integral-digit-boundary">
+     Example : Double integral - digit boundary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-double-integral-function-boundary">
+     Example: Double integral - function boundary
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-1-simplify-by-considering-r-1">
+       Solution 1: simplify by considering
+       <span class="math notranslate nohighlight">
+        \(r=1\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-2-generalise-for-any-r-value">
+       Solution 2: generalise for any
+       <span class="math notranslate nohighlight">
+        \(r\)
+       </span>
+       value
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pi-check-result">
+       PI: Check result
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordinary-differential-equations-sicpy-odeint">
+   Ordinary Differential Equations:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sicpy.odeint
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-pendulum">
+     Example: Pendulum
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-defining-values">
+       Pendulum: Defining values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-defining-ode">
+       Pendulum: Defining ODE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-solving-ode">
+       Pendulum: Solving ODE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pendulum-exact-solution-plotting">
+       Pendulum: Exact solution &amp; Plotting
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimisation-scipy-optimize-leastsq">
+   Optimisation:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.optimize.leastsq
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-sin-function">
+     Example: sin function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-initial-values">
+       Defining initial values
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function-definitions">
+       Function definitions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#experimental-data">
+       Experimental data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parameter-estimation">
+       Parameter estimation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-the-results">
+       Looking the results
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -434,11 +810,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="scipy">
 <h1>SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">#</a></h1>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Overview
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>NumPy provides arrays and limited additional functionality</p></li>
 <li><p>SciPy builds on NumPy and provides additional modules:</p>
@@ -458,55 +831,40 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Useful links
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<ul>
+</section>
+<section id="useful-links">
+<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
 <li><p>Note: no PDE solvers (though other packages exist)</p></li>
 <li><p>Documentation:</p>
 <ul>
-<li><p style="font-size: 100%"> http://docs.scipy.org/doc/scipy/reference/tutorial/ </p>
-</li>
-<li><p style="font-size: 100%"> http://docs.scipy.org/doc/scipy/reference/ </p>
-</li>
-<li><p style="font-size: 100%"> http://scipy-cookbook.readthedocs.org </p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">https://docs.scipy.org/doc/scipy/reference/index.html</a></p></li>
+<li><p><a class="reference external" href="http://scipy-cookbook.readthedocs.org">http://scipy-cookbook.readthedocs.org</a></p></li>
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Linear algebra
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<ul>
+</section>
+<section id="linear-algebra-sicpy-linalg">
+<h2>Linear algebra: <code class="docutils literal notranslate"><span class="pre">sicpy.linalg</span></code><a class="headerlink" href="#linear-algebra-sicpy-linalg" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
 <li><p>Wider set of linear algebra operations than in Numpy</p>
 <ul>
-<li><p style="font-size: 100%">various decompositions (eigen, singular value)</p>
-</li>
-<li><p style="font-size: 100%">matrix exponentials, trigonometric functions</p> 
-</li>
-<li><p style="font-size: 100%">particular matrix equations and special matrics</p>
-</li>
-<li><p style="font-size: 100%">low-level LAPACK and BLAS routines</p>
-</li>
+<li><p>various decompositions (eigen, singular value)</p></li>
+<li><p>matrix exponentials, trigonometric functions</p></li>
+<li><p>particular matrix equations and special matrics</p></li>
+<li><p>low-level LAPACK and BLAS routines</p></li>
 </ul>
 </li>
 <li><p>Routines also for sparse matrices</p>
 <ul>
-<li><p style="font-size: 100%">storage formats</p> 
-</li>
-<li><p style="font-size: 100%">iterative algorithms</p></li>
+<li><p>storage formats</p></li>
+<li><p>iterative algorithms</p></li>
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Example: Matrix inverse
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-Consider:
+<section id="example-matrix-inverse">
+<h3>Example: Matrix inverse<a class="headerlink" href="#example-matrix-inverse" title="Permalink to this headline">#</a></h3>
+<p>Consider:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}
@@ -535,183 +893,301 @@ A^{-1} =
 \end{array} \right]
 \end{split}\]</div>
 <p>which may be confirmed by checking <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity.</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise 1: Matrix inverse
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Find inverse of matrix A (as defined above). Check the result by multiplying out  <span class="math notranslate nohighlight">\(A A^{-1}\)</span> , which should give
-identity matrix  <span class="math notranslate nohighlight">\(I\)</span></p>
+<p>See this <a class="reference external" href="https://www.emathhelp.net/calculators/linear-algebra/inverse-of-matrix-calculator/?i=%5B%5B1%2C3%2C5%5D%2C%5B2%2C5%2C1%5D%2C%5B2%2C3%2C8%5D%5D&amp;m=g">solution step by step</a>!</p>
+<section id="a-find-inverse-of-matrix-a-as-defined-above">
+<h4>(a) Find inverse of matrix A (as defined above).<a class="headerlink" href="#a-find-inverse-of-matrix-a-as-defined-above" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numpy has a function to produce the 2D identity matrix I</span>
-<span class="c1"># query: ?np.eye</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="n">A</span> <span class="o">=</span> <span class="o">...</span>
+<span class="c1"># Define the matrix using numpy</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+
+<span class="c1"># Find inverse using scipy.linalg.inv()</span>
+<span class="n">Ainv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.48  0.36  0.88]
+ [ 0.56  0.08 -0.36]
+ [ 0.16 -0.12  0.04]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Exercise: Simple single integral</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Integration: `scipy.integrate`
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+<section id="b-check-the-result-by-inverting-the-result-which-should-return-the-original-matrix-a">
+<h4>(b) Check the result by inverting the result, which should return the original matrix  <span class="math notranslate nohighlight">\(A\)</span><a class="headerlink" href="#b-check-the-result-by-inverting-the-result-which-should-return-the-original-matrix-a" title="Permalink to this headline">#</a></h4>
+<p>Tip: you combine <a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.rint.html#numpy.rint"><code class="docutils literal notranslate"><span class="pre">numpy.rint()</span></code></a> to round to the nearest integer
+and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html"><code class="docutils literal notranslate"><span class="pre">numpy.astype(int)</span></code></a> to transform the result into a integer matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Ainv</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 3 5]
+ [2 5 1]
+ [2 3 8]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-check-the-result-by-multiplying-out-a-a-1-which-should-give-identity-matrix-i">
+<h4>(c) Check the result by multiplying out  <span class="math notranslate nohighlight">\(A A^{-1}\)</span> , which should give identity matrix  <span class="math notranslate nohighlight">\(I\)</span><a class="headerlink" href="#c-check-the-result-by-multiplying-out-a-a-1-which-should-give-identity-matrix-i" title="Permalink to this headline">#</a></h4>
+<p>Were the identity matrix is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+I = \left[ \begin{array}
+{rrr}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1 \\
+\end{array} \right]
+\end{split}\]</div>
+<p>Tip: you combine <code class="docutils literal notranslate"><span class="pre">numpy.rint()</span></code> to round to the nearest integer
+and <code class="docutils literal notranslate"><span class="pre">.astype(int)</span></code> to transform the result into a integer matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ainv</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 0 0]
+ [0 1 0]
+ [0 0 1]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-linear-equation">
+<h2>Example: Linear equation<a class="headerlink" href="#example-linear-equation" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html#scipy-linalg-solve"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve()</span></code></a>
+solves the linear equation set <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&#64;</span> <span class="pre">x</span> <span class="pre">==</span> <span class="pre">b</span></code> for the unknown <code class="docutils literal notranslate"><span class="pre">x</span></code> for square a matrix.</p>
+<p>Knowing that <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span>, find the inverse <span class="math notranslate nohighlight">\(A^{-1}\)</span> using the linear equation approach.</p>
+<p>Tip: you can create an identity matrix using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.identity.html#numpy-identity">numpy.identity()</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define I:</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span> <span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 0 0]
+ [0 1 0]
+ [0 0 1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solving the linear equation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">I</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.48  0.36  0.88]
+ [ 0.56  0.08 -0.36]
+ [ 0.16 -0.12  0.04]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-scipy-integrate">
+<h2>Integration: <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code><a class="headerlink" href="#integration-scipy-integrate" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Routines for numerical integration – single, double and triple integrals</p></li>
 <li><p>Can solve Ordinary Differential Equations (ODEs) with initial conditions</p></li>
 </ul>
-<section id="example-double-integral">
-<h2>Example : Double integral<a class="headerlink" href="#example-double-integral" title="Permalink to this headline">#</a></h2>
-<p>Calculate <span class="math notranslate nohighlight">\(\pi\)</span> using the double integral for the area of a circle with radius <span class="math notranslate nohighlight">\(r\)</span>: <br></p>
+<p>For example, we can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.dblquad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.dblquad</span></code></a>
+to determine the result of a double integral like:</p>
 <div class="math notranslate nohighlight">
 \[
-\int _{x_{min}} ^{x_{max}}\, dx \int _{g(x)} ^{h(x)} f(x,y) \, dy = \int _{-r} ^{r} \int _{-\sqrt(r^2-x^2)} ^{\sqrt(r^2-x^2)} 1 \, dx\, dy = \pi r^2
+\int _{a} ^{b}\ \int _{g(x)} ^{h(x)} f(x,y) \, dx \ dy
 \]</div>
-<p>We will solve this with <code class="docutils literal notranslate"><span class="pre">scipy.integrate.dblquad()</span></code></p>
-<p><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.integrate.dblquad.html">http://docs.scipy.org/doc/scipy-0.17.0/reference/generated/scipy.integrate.dblquad.html</a>
+<p>by calling: <code class="docutils literal notranslate"><span class="pre">dblquad(func,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">gfun,</span> <span class="pre">hfun)</span></code>, where <code class="docutils literal notranslate"><span class="pre">gfun</span></code> and <code class="docutils literal notranslate"><span class="pre">hfun</span></code> can be digits or functions.</p>
+<section id="example-double-integral-digit-boundary">
+<h3>Example : Double integral - digit boundary<a class="headerlink" href="#example-double-integral-digit-boundary" title="Permalink to this headline">#</a></h3>
+<p>Calculate the double integral</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^{\pi/2} dx \int_0^1 dy \quad f(x,y) = \int_0^{\pi/2} \int_0^1 f(x,y) \ dy \ dx 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(x,y) = y \sin(x)\)</span>. The answer should be 1/2.
 <br>
 <br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numerically integrate using dblquad()</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">dblquad</span>
 
-<span class="c1"># order of variables matters! y before x</span>
+<span class="c1"># define the integrand &gt;&gt; arguments order is important!</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">xminlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">xmaxlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># integral for the area of a circle with radius r</span>
-<span class="k">def</span> <span class="nf">integrate_to_pi</span><span class="p">(</span><span class="n">r</span><span class="p">):</span> 
-    <span class="p">(</span><span class="n">area</span><span class="p">,</span><span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> 
-                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">xminlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">),</span> 
-                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">xmaxlim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">area</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Integration : Check result
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Calculate the result and compare with the standard <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load pi_integration_check.py</span>
-<span class="c1"># calculate pi using numerical integration and check result against numpy constant np.pi</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="n">integrate_to_pi</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
-
-<span class="c1"># compare with numpy pi</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">integrate_to_pi</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
-
-<span class="c1"># can try timing... (uncomment line below)</span>
-<span class="c1"># %timeit integrate_to_pi(1.0) </span>
+<span class="c1"># note that the result has two values: &quot;The resultant integral&quot; and &quot;An estimate of the error&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dblquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1415926535897967
--3.552713678800501e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.49999999999999994, 5.551115123125782e-15)
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise : Double integral
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Calculate the double integral</p>
+<p>Sometimes is useful to use the <code class="docutils literal notranslate"><span class="pre">inline</span></code> function definition using <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, see the same example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lambda arguments : expression</span>
+<span class="n">inline_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dblquad</span><span class="p">(</span><span class="n">inline_func</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># or in one line:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dblquad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.49999999999999994, 5.551115123125782e-15)
+(0.49999999999999994, 5.551115123125782e-15)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-double-integral-function-boundary">
+<h3>Example: Double integral - function boundary<a class="headerlink" href="#example-double-integral-function-boundary" title="Permalink to this headline">#</a></h3>
+<p>One way of testing this function is by calculating <span class="math notranslate nohighlight">\(\pi\)</span> using the double integral for the area of a circle with radius <span class="math notranslate nohighlight">\(r\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\int_0^{\pi/2} dx \int_0^1 dy \quad f(x,y)
+\int _{-r} ^{r} \int _{-\sqrt(r^2-y^2)} ^{\sqrt(r^2-y^2)} 1 \, dx\, dy = \pi r^2
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(f(x,y) = y sin(x)\)</span>. The answer should be 1/2.
-<br>
-<br></p>
+<p>We will solve this with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.dblquad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.dblquad()</span></code></a></p>
+<section id="solution-1-simplify-by-considering-r-1">
+<h4>Solution 1: simplify by considering <span class="math notranslate nohighlight">\(r=1\)</span><a class="headerlink" href="#solution-1-simplify-by-considering-r-1" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the same approach here as above</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the integrand</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span>
 
-<span class="k">def</span> <span class="nf">integrand1</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># define the lower boundary curve in x</span>
+<span class="k">def</span> <span class="nf">gfun</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 
-<span class="n">area</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">area</span><span class="p">,</span> <span class="n">err</span>
+<span class="c1"># define the upper boundary curve in x</span>
+<span class="k">def</span> <span class="nf">hfun</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">my_pi</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">gfun</span><span class="p">,</span> <span class="n">hfun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_pi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-    <span class="nb">print</span> <span class="n">area</span><span class="p">,</span> <span class="n">err</span>
-          <span class="o">^</span>
-<span class="ne">SyntaxError</span>: Missing parentheses in call to &#39;print&#39;. Did you mean print(area, err)?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.1415926535897967, 2.000470900043183e-09)
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Solution : Double integral
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br><div class="cell docutils container">
+</section>
+<section id="solution-2-generalise-for-any-r-value">
+<h4>Solution 2: generalise for any <span class="math notranslate nohighlight">\(r\)</span> value<a class="headerlink" href="#solution-2-generalise-for-any-r-value" title="Permalink to this headline">#</a></h4>
+<p>Tip: You will need call <code class="docutils literal notranslate"><span class="pre">gfun</span></code> and <code class="docutils literal notranslate"><span class="pre">hfun</span></code> using a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function, something like
+<code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">y:</span> <span class="pre">gfun(y,r)</span></code></p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load integration.py</span>
-<span class="c1"># Integral x = [0, pi/2] y = [0, 1] f(x,y) = ysin(x)</span>
-<span class="c1"># numerically solve the integral using dblquad</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the integrand</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">dblquad</span>
+<span class="c1"># define the lower boundary curve in x</span>
+<span class="k">def</span> <span class="nf">gfun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 
-<span class="c1"># order of arguments matters!</span>
-<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># define the upper boundary curve in x</span>
+<span class="k">def</span> <span class="nf">hfun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 
-<span class="c1"># integrate f(x, y) = y * sin (x)</span>
-<span class="k">def</span> <span class="nf">integrate_this</span><span class="p">():</span> 
-    <span class="p">(</span><span class="n">area</span><span class="p">,</span><span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> 
-                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># define the area for a given radius - using dblquad</span>
+<span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="n">dblquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">+</span><span class="n">r</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">gfun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">r</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">hfun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">area</span>
 
-<span class="n">integrate_this</span><span class="p">()</span>
+<span class="c1"># get the pi value for a given area/radius:</span>
+<span class="k">def</span> <span class="nf">get_pi</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">get_area</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">area</span> <span class="o">/</span> <span class="n">r</span> <span class="o">/</span> <span class="n">r</span>
+    <span class="k">return</span> <span class="n">pi</span>
+
+<span class="n">my_pi</span> <span class="o">=</span> <span class="n">get_pi</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">my_pi</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1415926535897967
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Example : Pendulum
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Solve Ordinary Differential Equations (ODEs) with initial conditions, for example motion of simple pendulum.</p>
-<p>A point mass, <span class="math notranslate nohighlight">\(m\)</span>, is attached to the end of a massless rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>. The pendulum is acted on by gravity and friction. We can describe the resulting motion of the pendulum by angle, <span class="math notranslate nohighlight">\(\theta\)</span>, it makes with the vertical.</p>
-<p>&lt;img src=”pendulum.png”; style=”float: right; width: 40%; margin-right: 3%; margin-top: 0%; margin-bottom: -1%”&gt;  <br></p>
+</section>
+<section id="pi-check-result">
+<h4>PI: Check result<a class="headerlink" href="#pi-check-result" title="Permalink to this headline">#</a></h4>
+<p>Compare the integrated <code class="docutils literal notranslate"><span class="pre">pi</span></code> value with the standard <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare with numpy pi</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">get_pi</span><span class="p">(</span><span class="mi">4841</span><span class="p">))</span>
+
+<span class="c1"># print with scientific notation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+
+<span class="c1"># suppress the scientific notation</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.20f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.661338147750939e-15
+0.00000000000000666134
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="ordinary-differential-equations-sicpy-odeint">
+<h2>Ordinary Differential Equations: <code class="docutils literal notranslate"><span class="pre">sicpy.odeint</span></code><a class="headerlink" href="#ordinary-differential-equations-sicpy-odeint" title="Permalink to this headline">#</a></h2>
+<p>Solve Ordinary Differential Equations (ODEs) with initial conditions.</p>
+<section id="example-pendulum">
+<h3>Example: Pendulum<a class="headerlink" href="#example-pendulum" title="Permalink to this headline">#</a></h3>
+<p>Considerer a point mass, <span class="math notranslate nohighlight">\(m\)</span>, is attached to the end of a massless rigid rod of length <span class="math notranslate nohighlight">\(l\)</span>.
+The pendulum is acted on by gravity and friction.
+We can describe the resulting motion of the pendulum by angle, <span class="math notranslate nohighlight">\(\theta\)</span>, it makes with the vertical.</p>
+<img src="pendulum.png" style="width: 30%">
 <p>Assuming angle <span class="math notranslate nohighlight">\(\theta\)</span> always remains small, we can write a second-order differential equation to describe the motion of the mass according to Newton’s 2nd law of motion, <span class="math notranslate nohighlight">\(m\,a = F\)</span>, in terms of <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\ddot{\theta} = -\frac{g}{l}\,\theta - \frac{b}{m}\,\dot\theta
+\ddot{\theta} + \frac{b}{m}\,\dot\theta + \frac{g}{l}\,\theta = 0
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(b\)</span> is a constant of friction and <span class="math notranslate nohighlight">\(b \ll g\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(b\)</span> is the friction coefficient and <span class="math notranslate nohighlight">\(b \ll g\)</span>.</p>
 <p>To use <code class="docutils literal notranslate"><span class="pre">odeint</span></code>, we rewrite the above equation as 2 first-order differential equations:</p>
 <p><span class="math notranslate nohighlight">\(
 \dot{\theta} = \omega
@@ -719,99 +1195,77 @@ identity matrix  <span class="math notranslate nohighlight">\(I\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \dot{\omega}= -\frac{g}{l}\,\theta - \frac{b}{m}\,\omega
 \)</span></p>
-</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Pendulum (cont.)
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p style="font-size: 100%"> Define the ODE as a function and set up parameters and initial values. </p><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ode as a function</span>
-
-<span class="c1"># let y be vector  [theta, omega]</span>
-<span class="k">def</span> <span class="nf">pendulumNumerical</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
-    <span class="n">dydt</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
-    <span class="k">return</span> <span class="n">dydt</span>
-</pre></div>
-</div>
-</div>
-</div>
+<section id="pendulum-defining-values">
+<h4>Pendulum: Defining values<a class="headerlink" href="#pendulum-defining-values" title="Permalink to this headline">#</a></h4>
+<p>Set up parameters and initial values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters and initial values</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>                <span class="c1"># mass of bob</span>
-<span class="n">l</span> <span class="o">=</span> <span class="mf">1.0</span>                <span class="c1"># length of pendulum</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>               <span class="c1"># friction constant</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>               <span class="c1"># gravitational constant</span>
-<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="mf">0.01</span>    <span class="c1"># initial angle</span>
-<span class="n">w0</span> <span class="o">=</span> <span class="mf">0.0</span>               <span class="c1"># initial omega</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>                <span class="c1"># gravitational constant</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># length of pendulum</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># mass of the ball</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.2</span>                 <span class="c1"># friction coefficient</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># initial angle</span>
+<span class="n">w0</span> <span class="o">=</span> <span class="mf">0.0</span>                <span class="c1"># initial omega</span>
 
 <span class="c1"># create a vector with the initial angle and initial omega</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta0</span><span class="p">,</span> <span class="n">w0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># time interval</span>
-<span class="n">stoptime</span> <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># total number of seconds</span>
-<span class="n">numpoints</span> <span class="o">=</span> <span class="mi">101</span>       <span class="c1"># number of points interval</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">stoptime</span><span class="p">,</span> <span class="n">numpoints</span><span class="p">);</span>
+<span class="c1"># time interval</span>
+<span class="n">time_init</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># total number of seconds</span>
+<span class="n">time_end</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># total number of seconds</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">101</span>   <span class="c1"># number of points interval</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">time_init</span><span class="p">,</span> <span class="n">time_end</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="pendulum-defining-ode">
+<h4>Pendulum: Defining ODE<a class="headerlink" href="#pendulum-defining-ode" title="Permalink to this headline">#</a></h4>
+<p>Define the ODE as a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ODE solver parameters</span>
-<span class="n">abserr</span> <span class="o">=</span> <span class="mf">1.0e-8</span>      <span class="c1"># absolute error tolerance</span>
-<span class="n">relerr</span> <span class="o">=</span> <span class="mf">1.0e-6</span>      <span class="c1"># relative error tolerance</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define ODEs as a function</span>
+<span class="k">def</span> <span class="nf">pend</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;y = [theta, omega] &#39;&#39;&#39;</span>
+    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">odes</span> <span class="o">=</span> <span class="p">[</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span> <span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">l</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">omega</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">odes</span>
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Pendulum (cont.)
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Use <i>odeint</i> to numerically solve the ODE with initial conditions.</p>
+</section>
+<section id="pendulum-solving-ode">
+<h4>Pendulum: Solving ODE<a class="headerlink" href="#pendulum-solving-ode" title="Permalink to this headline">#</a></h4>
+<p>Define the ODE as a function.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">odeint</span></code> to numerically solve the ODE with initial conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import odeint solver</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+
+<span class="c1"># get solution. Note args are given as a tuple</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">pend</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get solution. Note args are given as a tuple</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">pendulumNumerical</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span><span class="n">atol</span><span class="o">=</span><span class="n">abserr</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">relerr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="pendulum-exact-solution-plotting">
+<h4>Pendulum: Exact solution &amp; Plotting<a class="headerlink" href="#pendulum-exact-solution-plotting" title="Permalink to this headline">#</a></h4>
 <p>The ODE can be solved analytically. The exact solutions for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> are:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exact solution for theta</span>
-<span class="k">def</span> <span class="nf">pendulumTheta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">thetaExact</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">l</span> <span class="p">)</span> <span class="p">)</span>
     <span class="n">sol</span> <span class="o">=</span> <span class="n">theta0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">root</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
     <span class="k">return</span> <span class="n">sol</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exact solution for omega</span>
-<span class="k">def</span> <span class="nf">pendulumOmega</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+
+<span class="c1"># Exact solution for omega</span>
+<span class="k">def</span> <span class="nf">omegaExact</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">l</span> <span class="p">)</span> <span class="p">)</span>
     <span class="n">sol</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">root</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">theta0</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span> <span class="n">b</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">-</span> <span class="n">root</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span> <span class="n">root</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
     <span class="k">return</span> <span class="n">sol</span>
@@ -819,52 +1273,41 @@ identity matrix  <span class="math notranslate nohighlight">\(I\)</span></p>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Exercise : Pendulum
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
 <p>To see how good the numerical solutions for <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> are, plot the exact solutions against the
 numerical solutions for the appropriate range of <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>You should include a legend to label the different lines/points.</p>
 <p>You should find that the numerical solution looks quite good. Can you adjust the parameters above
 (re-execute all the relevant cells) to make it worse?</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Solution : Pendulum
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load pendulum.py</span>
-<span class="c1"># Plot the numerical and exact solutions for a simple pendulum</span>
-
-<span class="c1"># to inline plots in a notebook, uncomment line below</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;theta(t)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">pendulumTheta</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact theta(t)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">pendulumOmega</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;m*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact omega(t)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;omega(t)&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot theta</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\theta(t)$: numeric&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="n">thetaExact</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">4</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\theta(t)$: exact&#39;</span><span class="p">)</span>
+
+<span class="c1">#plot omega</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\omega(t)$: numeric&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="n">omegaExact</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">4</span><span class="p">],</span><span class="n">theta0</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">l</span><span class="p">),</span> <span class="s1">&#39;m*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\omega(t)$: exact&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t(s)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_scipy_34_0.png" src="../_images/3_scipy_34_0.png" />
+<img alt="../_images/3_scipy_37_0.png" src="../_images/3_scipy_37_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Optimisation
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+</section>
+</section>
+<section id="optimisation-scipy-optimize-leastsq">
+<h2>Optimisation: <code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code><a class="headerlink" href="#optimisation-scipy-optimize-leastsq" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Several classical optimisation algorithms</p>
+<li><p>Scipy has Several classical optimisation algorithms</p>
 <ul>
 <li><p>Least squares fitting</p></li>
 <li><p>Quasi-Newton type optimisations</p></li>
@@ -873,37 +1316,57 @@ numerical solutions for the appropriate range of <span class="math notranslate n
 </ul>
 </li>
 </ul>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Least-squares fit
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code> to fit some measured data, <span class="math notranslate nohighlight">\(\{x_i,\,y_i\}\)</span>, to a function:</p>
+<p>Here, we are going to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code> to fit some measured data, <span class="math notranslate nohighlight">\(\{x_i,\,y_i\}\)</span>, to a function.</p>
+<section id="example-sin-function">
+<h3>Example: sin function<a class="headerlink" href="#example-sin-function" title="Permalink to this headline">#</a></h3>
+<p>Consider the following function</p>
 <div class="math notranslate nohighlight">
 \[
 y\,=\,A\,\sin(2\pi k x \,+\, \theta)
 \]</div>
-<p>where the parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\theta\)</span> are unknown. The residual vector, that will be squared and summed by <code class="docutils literal notranslate"><span class="pre">leastsq</span></code> to fit the data, is:</p>
+<p>where the parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\theta\)</span> are unknown.</p>
+<p>The residual vector, that will be squared and summed by <code class="docutils literal notranslate"><span class="pre">leastsq</span></code> to fit the data, is:</p>
 <div class="math notranslate nohighlight">
 \[
 e_i\,=\, ∣∣ \, y_i \,− \,A\sin(2\pi k x_i + \theta)∣∣
 \]</div>
 <p>By defining a function to compute the residuals, <span class="math notranslate nohighlight">\(e_i\)</span>, and, selecting appropriate starting values, <code class="docutils literal notranslate"><span class="pre">leastsq</span></code> can be used to find the best-fit parameters <span class="math notranslate nohighlight">\(\hat{A}\)</span>, <span class="math notranslate nohighlight">\(\hat{k}\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.</p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Least-squares fit
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Create a sample of true values, and the “measured” (noisy) data. Define the residual function and initial values.
-<br></p>
+<section id="defining-initial-values">
+<h4>Defining initial values<a class="headerlink" href="#defining-initial-values" title="Permalink to this headline">#</a></h4>
+<p>Create a sample of “true values”, and the “measured” (noisy) data. Define the residual function and initial values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up true function and &quot;measured&quot; data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">6e-2</span><span class="p">,</span> <span class="mf">6e-2</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
-<span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3e-2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the initial values</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3e-2</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span>
 
-<span class="n">y_true</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">)</span>
-<span class="n">y_meas</span> <span class="o">=</span> <span class="n">y_true</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="c1"># define x array</span>
+<span class="n">points</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">x_ini</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x_end</span> <span class="o">=</span> <span class="mf">0.06</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">x_end</span><span class="o">/</span><span class="n">points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_ini</span><span class="p">,</span> <span class="n">x_end</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+<span class="c1"># parameters vector:</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span><span class="p">]</span>
+
+<span class="c1"># gessing values of the parameter vector</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.3e-2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-definitions">
+<h4>Function definitions<a class="headerlink" href="#function-definitions" title="Permalink to this headline">#</a></h4>
+<p>For easy evaluation of the model function parameters y=[A, K, theta], we define two functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def main function</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;p = [A, k, theta]&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -911,207 +1374,89 @@ e_i\,=\, ∣∣ \, y_i \,− \,A\sin(2\pi k x_i + \theta)∣∣
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to compute the residual</span>
-<span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">p</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">measure</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">measure</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">err</span>
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Least-squares fit
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>For easy evaluation of the model function parameters [A, K, theta], we define a function.</p>
+</section>
+<section id="experimental-data">
+<h4>Experimental data<a class="headerlink" href="#experimental-data" title="Permalink to this headline">#</a></h4>
+<p>Create an experimental data by calculating the exact solution, and then, adding a noise to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">peval</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="c1"># starting values of A, k and theta</span>
-<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.3e-2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p0</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  8.          43.47826087   1.04719755]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define noise measured data &gt;&gt; tip: use random number to add noise</span>
+<span class="n">y_noise</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Least-squares fit
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p style="font-size: 100%">Do least squares fitting and plot results</p><div class="cell docutils container">
+</section>
+<section id="parameter-estimation">
+<h4>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">#</a></h4>
+<p>Do least squares fitting and print the parameter estimation</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do least squares fitting</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># least squares fitting</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">leastsq</span>
 
-<span class="n">plsq</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_meas</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">theta</span><span class="p">]))</span>
+<span class="n">fitting</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_noise</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Print estimated and exact parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated: &quot;</span><span class="p">,</span><span class="n">fitting</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact: &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  9.3624316   33.06964079   0.60016781]
-[ 10.          33.33333333   0.52359878]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated:  [-9.53385684 33.5386764   3.59632494]
+Exact:  [10.         33.33333333  0.52359878]
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="looking-the-results">
+<h4>Looking the results<a class="headerlink" href="#looking-the-results" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and plot the true function, measured (noisy) data </span>
-<span class="c1"># and the model function with fitted parameters </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">peval</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">plsq</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_meas</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># New x-vector to better plotting</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_ini</span><span class="p">,</span> <span class="n">x_end</span><span class="p">,</span> <span class="n">x_end</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">fitting</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_noise</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Noise&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Least-squares fit to noisy data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Fit&#39;</span><span class="p">,</span> <span class="s1">&#39;Noisy&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3_scipy_45_0.png" src="../_images/3_scipy_45_0.png" />
+<img alt="../_images/3_scipy_50_0.png" src="../_images/3_scipy_50_0.png" />
 </div>
 </div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Special functions
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
+</section>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>SciPy contains huge set of special functions</p>
-<ul>
-<li><p>Bessel functions</p></li>
-<li><p>Legendre functions</p></li>
-<li><p>Gamma functions</p></li>
-<li><p>Airy functions</p></li>
-</ul>
-</li>
-</ul>
-<p>We will see special functions used in the following sections.
-<br></p>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Example: `scipy.special`
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<ul class="simple">
-<li><p>Many problems with circular or cylindrical symmetry have solutions involving Bessel functions</p></li>
-<li><p>E.g., height of a oscillating drumhead related to <span class="math notranslate nohighlight">\(J_n(x)\)</span></p></li>
-</ul>
-<p>We will use</p>
-<p><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/special.html">http://docs.scipy.org/doc/scipy-0.14.0/reference/special.html</a>
-<br>
-<br></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drumhead example</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
-
-<span class="k">def</span> <span class="nf">drumhead_height</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="c1"># kth zero is last element of returned array</span>
-    <span class="n">kth_zero</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">jn_zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">special</span><span class="o">.</span><span class="n">jn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distance</span><span class="o">*</span><span class="n">kth_zero</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">50</span><span class="n">j</span><span class="p">]</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="n">j</span><span class="p">]</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">drumhead_height</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-              <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radius</span><span class="p">])</span>
-<span class="c1"># contd...</span>
-</pre></div>
-</div>
-</div>
-</div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Drumhead (cont.)
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<p>Plot the height of a drumhead using a 3-d axis set</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...contd</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">Axes3D</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/3_scipy_53_0.png" src="../_images/3_scipy_53_0.png" />
-</div>
-</div>
-<br>
-<hr style="border: solid 1px red; margin-bottom: 2% ">
-## Summary
-<hr style="border: solid 1px red; margin-bottom: -1%; ">
-<br>
-<ul>
-<li><p style="font-size: 100%">As we have seen, SciPy has a wide range of useful functionality for scientific computing. </p>
-</li>
-<li><p style="font-size: 100%">In case it does not have what you need, there are other packages with specialised functionality. </p>
-</li>
+<li><p>As we have seen, SciPy has a wide range of useful functionality for scientific computing.</p></li>
+<li><p>In case it does not have what you need, there are other packages with specialised functionality.</p></li>
 </ul>
 <section id="other-packages">
 <h3>Other packages<a class="headerlink" href="#other-packages" title="Permalink to this headline">#</a></h3>
-<ul>
-<li><p style="font-size: 100%">Pandas</p>
-<ul>
-<li><p style="font-size: 100%">Offers R-like statistical analysis of numerical tables and time series</p>
-</li>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pandas</span></code>: Offers R-like statistical analysis of numerical tables and time series</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code>: Python library for symbolic computing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scikit-image</span></code>: Advanced image processing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>: Package for machine learning</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sage</span></code>: Open source replacement for Mathematica / Maple / Matlab (built using Python)</p></li>
 </ul>
-</li>
-<li><p style="font-size: 100%">SymPy</p>
-<ul>
-<li><p style="font-size: 100%">Python library for symbolic computing</p>
-</li>
-</ul>
-</li>
-<li><p style="font-size: 100%">scikit-image</p>
-<ul>
-<li><p style="font-size: 100%">Advanced image processing</p>
-</li>
-</ul>
-</li>
-<li><p style="font-size: 100%">scikit-learn</p>
-<ul>
-<li><p style="font-size: 100%">Package for machine learning</p>
-</li>
-</ul>
-</li>
-<li><p style="font-size: 100%">Sage</p>
-<ul>
-<li><p style="font-size: 100%">Open source replacement for Mathematica / Maple / Matlab (built using Python)</p>
-</li>
-</ul>
-</li>
-</ul>
-<br>
 </section>
 </section>
 </section>
